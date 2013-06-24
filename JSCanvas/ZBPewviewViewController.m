@@ -4,6 +4,7 @@
 @interface ZBPewviewViewController ()
 {
 	NSTimer *timer;
+	UITouch *lastTouch;
 }
 @end
 
@@ -25,8 +26,9 @@
 {
 	[super viewDidLoad];
 	if (!timer) {
-		timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerMethod:) userInfo:nil repeats:YES];
+		timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerMethod:) userInfo:nil repeats:YES];
 	}
+	[(ZBAppDelegate *)[UIApplication sharedApplication].delegate canvasManager].delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,9 +36,41 @@
 	[super didReceiveMemoryWarning];
 }
 
+#pragma mark ZBPreviewViewDelegate
+
 - (void)previewViewDidRequestDrawingFunction:(ZBPreviewView *)inView
 {
 	[[(ZBAppDelegate *)[UIApplication sharedApplication].delegate canvasManager] runJavaScriptDrawingFunction];
+}
+
+#pragma mark ZBCanvasManagerDelegate
+
+- (CGPoint)canvasManagerRequestLastTouchLocation:(ZBCanvasManager *)manager
+{
+	return [lastTouch locationInView:self.previewView];
+}
+
+#pragma mark -
+#pragma mark UIResponder methods
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	lastTouch = [touches anyObject];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	lastTouch = [touches anyObject];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	lastTouch = nil;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	lastTouch = [touches anyObject];
 }
 
 @end

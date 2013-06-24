@@ -13,12 +13,12 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
 		NSUInteger option = UIExtendedEdgeLeft | UIExtendedEdgeBottom | UIExtendedEdgeRight;
 		[self setEdgesForExtendedLayout:option];
-    }
-    return self;
+	}
+	return self;
 }
 
 - (void)viewDidLoad
@@ -45,6 +45,9 @@
 	[super didReceiveMemoryWarning];
 }
 
+#pragma mark -
+#pragma mark Interface Builder actions
+
 - (IBAction)update:(id)sender
 {
 	[self.textView resignFirstResponder];
@@ -55,29 +58,22 @@
 
 - (IBAction)cancel:(id)sender
 {
-	[self.textView resignFirstResponder];	
+	[self.textView resignFirstResponder];
 }
+
+#pragma mark -
+#pragma mark Notifications
 
 - (void)keyboardWillShow:(NSNotification *)n
 {
 	CGRect textFrame = self.textView.frame;
 	textFrame.size.height = [self.textView convertRect:[[n userInfo][UIKeyboardFrameEndUserInfoKey] CGRectValue] fromView:nil].origin.y;
-	textFrame.origin.y = 0;
-	[UIView animateWithDuration:[[n userInfo][UIKeyboardAnimationDurationUserInfoKey] doubleValue] animations:^{
-		self.textView.frame = textFrame;
-	} completion:^(BOOL finished) {
-		self.textView.frame = textFrame;
-	}];
+	self.textView.frame = textFrame;
 }
 
 - (void)keyboardWillHide:(NSNotification *)n
 {
 	self.textView.frame = self.view.bounds;
-	[UIView animateWithDuration:[[n userInfo][UIKeyboardAnimationDurationUserInfoKey] doubleValue] animations:^{
-		self.textView.frame = self.view.bounds;
-	} completion:^(BOOL finished) {
-		self.textView.frame = self.view.bounds;
-	}];
 }
 
 

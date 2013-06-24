@@ -38,4 +38,8 @@ onDraw = function () {
 	Line(160, 160, 160 + hX, 160 + hY);
 
 	FillOval(150, 150, 20, 20);
+
+	var location = TouchLocation();
+	SetFillColor(255, 0, 0, 100);
+	FillOval(location.x - 25, location.y - 25, 50, 50);
 };
