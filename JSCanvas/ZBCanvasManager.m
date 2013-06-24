@@ -1,6 +1,7 @@
 #import "ZBCanvasManager.h"
 
 @interface ZBCanvasManager()
+@property (strong, nonatomic) UIColor *color;
 @property (assign, nonatomic) CGFloat lineWidth;
 @property (strong, nonatomic) NSString *fontName;
 @property (assign, nonatomic) CGFloat fontSize;
@@ -30,6 +31,7 @@
 
 - (void)_initJavaScriptObjects
 {
+	self.color = [UIColor colorWithHue:0.0 saturation:0.0 brightness:0.0 alpha:1.0];
 	self.lineWidth = 1.0;
 	self.fontName = @"Helvetica";
 	self.fontSize = 13.0;
@@ -37,6 +39,7 @@
 
 	javaScriptContext[@"SetColor"] = ^(NSNumber *r, NSNumber *g, NSNumber *b, NSNumber *a) {
 		UIColor *color = [this _colorWithR:r G:g B:b A:a];
+		this.color = color;
 		[color set];
 	};
 	javaScriptContext[@"SetFillColor"] = ^(NSNumber *r, NSNumber *g, NSNumber *b, NSNumber *a) {
@@ -85,7 +88,7 @@
 	};
 	javaScriptContext[@"Text"] = ^(NSString *text, NSNumber *x, NSNumber *y) {
 		UIFont *font = [UIFont fontWithName:this.fontName size:this.fontSize];
-		NSDictionary *attr = @{NSFontAttributeName: font};
+		NSDictionary *attr = @{NSFontAttributeName: font, NSForegroundColorAttributeName: this.color};
 		[text drawAtPoint:CGPointMake([x doubleValue], [y doubleValue]) withAttributes:attr];
 	};
 }

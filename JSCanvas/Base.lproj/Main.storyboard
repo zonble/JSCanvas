@@ -14,6 +14,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fOT-9c-Jp5">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="iJ4-o0-G1l">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="CZ4-MO-1fc" kind="relationship" relationship="rootViewController" id="9J5-oJ-R2y"/>
                     </connections>
@@ -30,7 +34,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FLM-zZ-Szk" customClass="ZBPreviewView">
+                            <view contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="FLM-zZ-Szk" customClass="ZBPreviewView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -78,7 +82,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BXZ-Nq-MHs">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BXZ-Nq-MHs">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -87,6 +91,12 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BXZ-Nq-MHs" firstAttribute="trailing" secondItem="gMD-aP-Fq6" secondAttribute="trailing" id="WC5-vL-E8i"/>
+                            <constraint firstItem="BXZ-Nq-MHs" firstAttribute="top" secondItem="gMD-aP-Fq6" secondAttribute="top" id="YVk-2x-Y0D"/>
+                            <constraint firstItem="BXZ-Nq-MHs" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="ckZ-ps-wrG"/>
+                            <constraint firstItem="BXZ-Nq-MHs" firstAttribute="bottom" secondItem="gMD-aP-Fq6" secondAttribute="bottom" id="iEZ-Dj-mX6"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Source Editor" image="second" id="Z7h-1E-pvt"/>
@@ -136,6 +146,9 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
         <class className="ZBPewviewViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZBPewviewViewController.h"/>
             <relationships>

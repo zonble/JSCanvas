@@ -26,7 +26,7 @@
 		D4B754F61777E94200096B2F /* ZBCanvasManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B754F31777E8DC00096B2F /* ZBCanvasManager.m */; };
 		D4D3FB391777F6E20044E162 /* ZBPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B754F81777F1F000096B2F /* ZBPreviewView.m */; };
 		D4D3FB3A1777FAA20044E162 /* sample.js in Sources */ = {isa = PBXBuildFile; fileRef = D4B754F91777F45F00096B2F /* sample.js */; };
-		D4D3FB3B1777FAB40044E162 /* sample.js in Resources */ = {isa = PBXBuildFile; fileRef = D4B754F91777F45F00096B2F /* sample.js */; };
+		D4D3FB88177839100044E162 /* sample.js in Resources */ = {isa = PBXBuildFile; fileRef = D4B754F91777F45F00096B2F /* sample.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,7 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4D3FB3B1777FAB40044E162 /* sample.js in Resources */,
+				D4D3FB88177839100044E162 /* sample.js in Resources */,
 				D4B754D61777E8BA00096B2F /* Images.xcassets in Resources */,
 				D4B754C51777E8BA00096B2F /* InfoPlist.strings in Resources */,
 				D4B754CE1777E8BA00096B2F /* Main.storyboard in Resources */,
