@@ -82,7 +82,7 @@
 - (void)keyboardWillShow:(NSNotification *)n
 {
 	CGRect textFrame = self.textView.frame;
-	textFrame.size.height = [self.textView convertRect:[[n userInfo][UIKeyboardFrameEndUserInfoKey] CGRectValue] fromView:nil].origin.y;
+	textFrame.size.height = [self.view convertRect:[[n userInfo][UIKeyboardFrameEndUserInfoKey] CGRectValue] fromView:nil].origin.y;
 	self.textView.frame = textFrame;
 }
 

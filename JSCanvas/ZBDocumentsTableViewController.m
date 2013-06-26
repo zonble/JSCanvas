@@ -32,13 +32,13 @@
 {
 	[super viewWillAppear:animated];
 	[self _loadFiles];
+	[self.tableView reloadData];
 }
 
 - (void)_loadFiles
 {
 	NSArray *files = [ZBJavaScriptDocument existingFiles];
 	self.files = files;
-	[self.tableView reloadData];
 }
 
 - (void)_loadDocument:(ZBJavaScriptDocument *)document
@@ -60,6 +60,7 @@
 	ZBJavaScriptDocument *document = [ZBJavaScriptDocument createNewDocument];
 	[self _loadDocument:document];
 	[self _loadFiles];
+	[self.tableView reloadData];
 }
 
 - (IBAction)showMoreOptions:(id)sender
@@ -123,6 +124,18 @@
 	[self _loadDocument:document];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+		NSString *filename = self.files[indexPath.row];
+		NSURL *fileURL = [ZBJavaScriptDocument fileURLWithFileName:filename];
+		NSError *error = nil;
+		[[NSFileManager defaultManager] removeItemAtURL:fileURL error:&error];
+		[self _loadFiles];
+		[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
+	}
+}
+
 #pragma mark -
 
 - (void)samplesTableViewController:(ZBSamplesTableViewController *)inController didSelectFileAtURL:(NSURL *)inFileURL
@@ -135,6 +148,7 @@
 		[document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:nil];
 		[self _loadDocument:document];
 		[self _loadFiles];
+		[self.tableView reloadData];
 	}
 }
 
