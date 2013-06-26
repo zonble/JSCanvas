@@ -25,6 +25,8 @@
 		D408519B177B3A8700DC4C1A /* ZBPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4085199177B3A8700DC4C1A /* ZBPreviewView.m */; };
 		D408519E177B3AA100DC4C1A /* ZBCanvasManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D408519D177B3AA100DC4C1A /* ZBCanvasManager.m */; };
 		D40851A1177B3AB000DC4C1A /* ZBSourceEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40851A0177B3AB000DC4C1A /* ZBSourceEditorViewController.m */; };
+		D40851A4177B469100DC4C1A /* samples in Resources */ = {isa = PBXBuildFile; fileRef = D40851A3177B469100DC4C1A /* samples */; };
+		D40851A7177B46FD00DC4C1A /* ZBSamplesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40851A6177B46CE00DC4C1A /* ZBSamplesTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,9 @@
 		D408519D177B3AA100DC4C1A /* ZBCanvasManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCanvasManager.m; sourceTree = "<group>"; };
 		D408519F177B3AB000DC4C1A /* ZBSourceEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBSourceEditorViewController.h; sourceTree = "<group>"; };
 		D40851A0177B3AB000DC4C1A /* ZBSourceEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBSourceEditorViewController.m; sourceTree = "<group>"; };
+		D40851A3177B469100DC4C1A /* samples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = samples; sourceTree = SOURCE_ROOT; };
+		D40851A5177B46CE00DC4C1A /* ZBSamplesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSamplesTableViewController.h; sourceTree = "<group>"; };
+		D40851A6177B46CE00DC4C1A /* ZBSamplesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSamplesTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +134,7 @@
 				D4085194177B3A6900DC4C1A /* Preview */,
 				D4085193177B3A5A00DC4C1A /* Canvas Manager */,
 				D4085192177B3A3700DC4C1A /* Documents */,
+				D40851A2177B467D00DC4C1A /* Samples */,
 				D408515C177B24F500DC4C1A /* ZBAppDelegate.h */,
 				D408515D177B24F500DC4C1A /* ZBAppDelegate.m */,
 				D4085168177B24F500DC4C1A /* Images.xcassets */,
@@ -140,6 +146,7 @@
 		D4085154177B24F500DC4C1A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D40851A3177B469100DC4C1A /* samples */,
 				D4085155177B24F500DC4C1A /* JSCanvas-Info.plist */,
 				D4085156177B24F500DC4C1A /* InfoPlist.strings */,
 				D4085159177B24F500DC4C1A /* main.m */,
@@ -204,6 +211,15 @@
 				D40851A0177B3AB000DC4C1A /* ZBSourceEditorViewController.m */,
 			);
 			name = Editor;
+			sourceTree = "<group>";
+		};
+		D40851A2177B467D00DC4C1A /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				D40851A5177B46CE00DC4C1A /* ZBSamplesTableViewController.h */,
+				D40851A6177B46CE00DC4C1A /* ZBSamplesTableViewController.m */,
+			);
+			name = Samples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D40851A4177B469100DC4C1A /* samples in Resources */,
 				D4085169177B24F500DC4C1A /* Images.xcassets in Resources */,
 				D4085158177B24F500DC4C1A /* InfoPlist.strings in Resources */,
 			);
@@ -304,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D408515E177B24F500DC4C1A /* ZBAppDelegate.m in Sources */,
+				D40851A7177B46FD00DC4C1A /* ZBSamplesTableViewController.m in Sources */,
 				D408519B177B3A8700DC4C1A /* ZBPreviewView.m in Sources */,
 				D408515A177B24F500DC4C1A /* main.m in Sources */,
 				D4085187177B26C100DC4C1A /* ZBDocumentsTableViewController.m in Sources */,

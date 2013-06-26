@@ -10,6 +10,7 @@
 	self.navigationController = [[UINavigationController alloc] initWithRootViewController:documentsController];
 	self.navigationController.toolbarHidden = NO;
 	self.window.rootViewController = self.navigationController;
+	[self.window setTintColor:[UIColor colorWithHue:0.1 saturation:1.0 brightness:0.5 alpha:1.0]];
 	[self.window makeKeyAndVisible];
     return YES;
 }
