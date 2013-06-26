@@ -1,7 +1,11 @@
 #import "ZBSourceEditorViewController.h"
-#import "ZBAppDelegate.h"
+#import "ZBPreviewViewController.h"
 
 @interface ZBSourceEditorViewController ()
+{
+	ZBJavaScriptDocument *document;
+}
+- (void)_saveDocument;
 @end
 
 @implementation ZBSourceEditorViewController
@@ -11,33 +15,47 @@
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithDocoment:(ZBJavaScriptDocument *)inDocument
 {
-	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-	if (self) {
-		NSUInteger option = UIExtendedEdgeLeft | UIExtendedEdgeBottom | UIExtendedEdgeRight;
-		[self setEdgesForExtendedLayout:option];
-	}
-	return self;
+    self = [super init];
+    if (self) {
+        document = inDocument;
+    }
+    return self;
+}
+
+- (void)loadView
+{
+	UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+	view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+	view.backgroundColor = [UIColor whiteColor];
+	self.view = view;
+
+	UITextView *textView = [[UITextView alloc] initWithFrame:self.view.bounds];
+	textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+	textView.font = [UIFont fontWithName:@"Courier" size:12.0];
+	textView.autocapitalizationType = UITextAutocapitalizationTypeNone;
+	textView.autocorrectionType = UITextAutocorrectionTypeNo;
+	self.textView = textView;
+	[self.view addSubview:self.textView];
+
+	UIBarButtonItem *runItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Run", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(run:)];
+	self.navigationItem.rightBarButtonItem = runItem;
 }
 
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-
-	NSURL *sampleFileURL = [[NSBundle mainBundle] URLForResource:@"sample" withExtension:@"js"];
-	NSString *sampleScript = [NSString stringWithContentsOfURL:sampleFileURL encoding:NSUTF8StringEncoding error:nil];
-	self.currentScript = sampleScript;
-	self.textView.text = self.currentScript;
+	self.textView.text = self.document.text;
+	self.title = [[self.document.fileURL path] lastPathComponent];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-	[super viewDidAppear:animated];
-	[self.textView becomeFirstResponder];
+	[super viewWillDisappear:animated];
+	[self _saveDocument];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,17 +66,14 @@
 #pragma mark -
 #pragma mark Interface Builder actions
 
-- (IBAction)update:(id)sender
+- (IBAction)run:(id)sender
 {
 	[self.textView resignFirstResponder];
-	NSString *script = [self.textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-	self.currentScript = script;
-	[[(ZBAppDelegate *)[UIApplication sharedApplication].delegate canvasManager] loadJavaScript:self.currentScript];
-}
-
-- (IBAction)cancel:(id)sender
-{
-	[self.textView resignFirstResponder];
+	NSString *script = self.textView.text;
+	ZBPreviewViewController *controller = [[ZBPreviewViewController alloc] initWithJavaScript:script];
+	controller.title = self.title;
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+	[self.navigationController presentViewController:navController animated:YES completion:nil];
 }
 
 #pragma mark -
@@ -76,5 +91,16 @@
 	self.textView.frame = self.view.bounds;
 }
 
+#pragma mark -
+#pragma mark Privates
+
+- (void)_saveDocument
+{
+	NSString *script = self.textView.text;
+	[self.document.text setString:script];
+	[self.document saveToURL:self.document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:nil];
+}
+
+@synthesize document;
 
 @end

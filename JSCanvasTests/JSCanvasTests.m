@@ -2,8 +2,8 @@
 //  JSCanvasTests.m
 //  JSCanvasTests
 //
-//  Created by zonble on 6/24/13.
-//  Copyright (c) 2013 Weizhong Yang. All rights reserved.
+//  Created by zonble on 6/26/13.
+//  Copyright (c) 2013 zonble. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

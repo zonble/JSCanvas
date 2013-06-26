@@ -7,200 +7,215 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D4B754BB1777E8BA00096B2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B754BA1777E8BA00096B2F /* Foundation.framework */; };
-		D4B754BD1777E8BA00096B2F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B754BC1777E8BA00096B2F /* CoreGraphics.framework */; };
-		D4B754BF1777E8BA00096B2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B754BE1777E8BA00096B2F /* UIKit.framework */; };
-		D4B754C51777E8BA00096B2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4B754C31777E8BA00096B2F /* InfoPlist.strings */; };
-		D4B754C71777E8BA00096B2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B754C61777E8BA00096B2F /* main.m */; };
-		D4B754CB1777E8BA00096B2F /* ZBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B754CA1777E8BA00096B2F /* ZBAppDelegate.m */; };
-		D4B754CE1777E8BA00096B2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B754CC1777E8BA00096B2F /* Main.storyboard */; };
-		D4B754D11777E8BA00096B2F /* ZBPewviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B754D01777E8BA00096B2F /* ZBPewviewViewController.m */; };
-		D4B754D41777E8BA00096B2F /* ZBSourceEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B754D31777E8BA00096B2F /* ZBSourceEditorViewController.m */; };
-		D4B754D61777E8BA00096B2F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4B754D51777E8BA00096B2F /* Images.xcassets */; };
-		D4B754DD1777E8BA00096B2F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B754DC1777E8BA00096B2F /* XCTest.framework */; };
-		D4B754DE1777E8BA00096B2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B754BA1777E8BA00096B2F /* Foundation.framework */; };
-		D4B754DF1777E8BA00096B2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B754BE1777E8BA00096B2F /* UIKit.framework */; };
-		D4B754E71777E8BA00096B2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4B754E51777E8BA00096B2F /* InfoPlist.strings */; };
-		D4B754E91777E8BA00096B2F /* JSCanvasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B754E81777E8BA00096B2F /* JSCanvasTests.m */; };
-		D4B754F51777E91600096B2F /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B754F41777E91600096B2F /* JavaScriptCore.framework */; };
-		D4B754F61777E94200096B2F /* ZBCanvasManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B754F31777E8DC00096B2F /* ZBCanvasManager.m */; };
-		D4D3FB391777F6E20044E162 /* ZBPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B754F81777F1F000096B2F /* ZBPreviewView.m */; };
-		D4D3FB3A1777FAA20044E162 /* sample.js in Sources */ = {isa = PBXBuildFile; fileRef = D4B754F91777F45F00096B2F /* sample.js */; };
-		D4D3FB88177839100044E162 /* sample.js in Resources */ = {isa = PBXBuildFile; fileRef = D4B754F91777F45F00096B2F /* sample.js */; };
+		D408514E177B24F500DC4C1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D408514D177B24F500DC4C1A /* Foundation.framework */; };
+		D4085150177B24F500DC4C1A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D408514F177B24F500DC4C1A /* CoreGraphics.framework */; };
+		D4085152177B24F500DC4C1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4085151177B24F500DC4C1A /* UIKit.framework */; };
+		D4085158177B24F500DC4C1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4085156177B24F500DC4C1A /* InfoPlist.strings */; };
+		D408515A177B24F500DC4C1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4085159177B24F500DC4C1A /* main.m */; };
+		D408515E177B24F500DC4C1A /* ZBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D408515D177B24F500DC4C1A /* ZBAppDelegate.m */; };
+		D4085169177B24F500DC4C1A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4085168177B24F500DC4C1A /* Images.xcassets */; };
+		D4085170177B24F500DC4C1A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D408516F177B24F500DC4C1A /* XCTest.framework */; };
+		D4085171177B24F500DC4C1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D408514D177B24F500DC4C1A /* Foundation.framework */; };
+		D4085172177B24F500DC4C1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4085151177B24F500DC4C1A /* UIKit.framework */; };
+		D408517A177B24F500DC4C1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4085178177B24F500DC4C1A /* InfoPlist.strings */; };
+		D408517C177B24F500DC4C1A /* JSCanvasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D408517B177B24F500DC4C1A /* JSCanvasTests.m */; };
+		D4085187177B26C100DC4C1A /* ZBDocumentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4085186177B264700DC4C1A /* ZBDocumentsTableViewController.m */; };
+		D408518A177B293E00DC4C1A /* ZBJavaScriptDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D4085189177B28BC00DC4C1A /* ZBJavaScriptDocument.m */; };
+		D408519A177B3A8700DC4C1A /* ZBPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4085197177B3A8700DC4C1A /* ZBPreviewViewController.m */; };
+		D408519B177B3A8700DC4C1A /* ZBPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4085199177B3A8700DC4C1A /* ZBPreviewView.m */; };
+		D408519E177B3AA100DC4C1A /* ZBCanvasManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D408519D177B3AA100DC4C1A /* ZBCanvasManager.m */; };
+		D40851A1177B3AB000DC4C1A /* ZBSourceEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40851A0177B3AB000DC4C1A /* ZBSourceEditorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D4B754E01777E8BA00096B2F /* PBXContainerItemProxy */ = {
+		D4085173177B24F500DC4C1A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D4B754AF1777E8BA00096B2F /* Project object */;
+			containerPortal = D4085142177B24F500DC4C1A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D4B754B61777E8BA00096B2F;
+			remoteGlobalIDString = D4085149177B24F500DC4C1A;
 			remoteInfo = JSCanvas;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D4B754B71777E8BA00096B2F /* JSCanvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSCanvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4B754BA1777E8BA00096B2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D4B754BC1777E8BA00096B2F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D4B754BE1777E8BA00096B2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		D4B754C21777E8BA00096B2F /* JSCanvas-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JSCanvas-Info.plist"; sourceTree = "<group>"; };
-		D4B754C41777E8BA00096B2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D4B754C61777E8BA00096B2F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D4B754C81777E8BA00096B2F /* JSCanvas-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSCanvas-Prefix.pch"; sourceTree = "<group>"; };
-		D4B754C91777E8BA00096B2F /* ZBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBAppDelegate.h; sourceTree = "<group>"; };
-		D4B754CA1777E8BA00096B2F /* ZBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBAppDelegate.m; sourceTree = "<group>"; };
-		D4B754CD1777E8BA00096B2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D4B754CF1777E8BA00096B2F /* ZBPewviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBPewviewViewController.h; sourceTree = "<group>"; };
-		D4B754D01777E8BA00096B2F /* ZBPewviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBPewviewViewController.m; sourceTree = "<group>"; };
-		D4B754D21777E8BA00096B2F /* ZBSourceEditorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSourceEditorViewController.h; sourceTree = "<group>"; };
-		D4B754D31777E8BA00096B2F /* ZBSourceEditorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSourceEditorViewController.m; sourceTree = "<group>"; };
-		D4B754D51777E8BA00096B2F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D4B754DB1777E8BA00096B2F /* JSCanvasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSCanvasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4B754DC1777E8BA00096B2F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		D4B754E41777E8BA00096B2F /* JSCanvasTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JSCanvasTests-Info.plist"; sourceTree = "<group>"; };
-		D4B754E61777E8BA00096B2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D4B754E81777E8BA00096B2F /* JSCanvasTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSCanvasTests.m; sourceTree = "<group>"; };
-		D4B754F21777E8DC00096B2F /* ZBCanvasManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCanvasManager.h; sourceTree = "<group>"; };
-		D4B754F31777E8DC00096B2F /* ZBCanvasManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBCanvasManager.m; sourceTree = "<group>"; };
-		D4B754F41777E91600096B2F /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		D4B754F71777F1F000096B2F /* ZBPreviewView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBPreviewView.h; sourceTree = "<group>"; };
-		D4B754F81777F1F000096B2F /* ZBPreviewView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBPreviewView.m; sourceTree = "<group>"; };
-		D4B754F91777F45F00096B2F /* sample.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sample.js; sourceTree = "<group>"; };
+		D408514A177B24F500DC4C1A /* JSCanvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSCanvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D408514D177B24F500DC4C1A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D408514F177B24F500DC4C1A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D4085151177B24F500DC4C1A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D4085155177B24F500DC4C1A /* JSCanvas-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JSCanvas-Info.plist"; sourceTree = "<group>"; };
+		D4085157177B24F500DC4C1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4085159177B24F500DC4C1A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D408515B177B24F500DC4C1A /* JSCanvas-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSCanvas-Prefix.pch"; sourceTree = "<group>"; };
+		D408515C177B24F500DC4C1A /* ZBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBAppDelegate.h; sourceTree = "<group>"; };
+		D408515D177B24F500DC4C1A /* ZBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBAppDelegate.m; sourceTree = "<group>"; };
+		D4085168177B24F500DC4C1A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D408516E177B24F500DC4C1A /* JSCanvasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSCanvasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D408516F177B24F500DC4C1A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D4085177177B24F500DC4C1A /* JSCanvasTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JSCanvasTests-Info.plist"; sourceTree = "<group>"; };
+		D4085179177B24F500DC4C1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D408517B177B24F500DC4C1A /* JSCanvasTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSCanvasTests.m; sourceTree = "<group>"; };
+		D4085185177B264700DC4C1A /* ZBDocumentsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBDocumentsTableViewController.h; sourceTree = "<group>"; };
+		D4085186177B264700DC4C1A /* ZBDocumentsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBDocumentsTableViewController.m; sourceTree = "<group>"; };
+		D4085188177B28BC00DC4C1A /* ZBJavaScriptDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBJavaScriptDocument.h; sourceTree = "<group>"; };
+		D4085189177B28BC00DC4C1A /* ZBJavaScriptDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBJavaScriptDocument.m; sourceTree = "<group>"; };
+		D4085196177B3A8700DC4C1A /* ZBPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBPreviewViewController.h; sourceTree = "<group>"; };
+		D4085197177B3A8700DC4C1A /* ZBPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBPreviewViewController.m; sourceTree = "<group>"; };
+		D4085198177B3A8700DC4C1A /* ZBPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBPreviewView.h; sourceTree = "<group>"; };
+		D4085199177B3A8700DC4C1A /* ZBPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBPreviewView.m; sourceTree = "<group>"; };
+		D408519C177B3AA100DC4C1A /* ZBCanvasManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBCanvasManager.h; sourceTree = "<group>"; };
+		D408519D177B3AA100DC4C1A /* ZBCanvasManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCanvasManager.m; sourceTree = "<group>"; };
+		D408519F177B3AB000DC4C1A /* ZBSourceEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBSourceEditorViewController.h; sourceTree = "<group>"; };
+		D40851A0177B3AB000DC4C1A /* ZBSourceEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBSourceEditorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D4B754B41777E8BA00096B2F /* Frameworks */ = {
+		D4085147177B24F500DC4C1A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B754F51777E91600096B2F /* JavaScriptCore.framework in Frameworks */,
-				D4B754BD1777E8BA00096B2F /* CoreGraphics.framework in Frameworks */,
-				D4B754BF1777E8BA00096B2F /* UIKit.framework in Frameworks */,
-				D4B754BB1777E8BA00096B2F /* Foundation.framework in Frameworks */,
+				D4085150177B24F500DC4C1A /* CoreGraphics.framework in Frameworks */,
+				D4085152177B24F500DC4C1A /* UIKit.framework in Frameworks */,
+				D408514E177B24F500DC4C1A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4B754D81777E8BA00096B2F /* Frameworks */ = {
+		D408516B177B24F500DC4C1A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B754DD1777E8BA00096B2F /* XCTest.framework in Frameworks */,
-				D4B754DF1777E8BA00096B2F /* UIKit.framework in Frameworks */,
-				D4B754DE1777E8BA00096B2F /* Foundation.framework in Frameworks */,
+				D4085170177B24F500DC4C1A /* XCTest.framework in Frameworks */,
+				D4085172177B24F500DC4C1A /* UIKit.framework in Frameworks */,
+				D4085171177B24F500DC4C1A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D4B754AE1777E8BA00096B2F = {
+		D4085141177B24F500DC4C1A = {
 			isa = PBXGroup;
 			children = (
-				D4B754C01777E8BA00096B2F /* JSCanvas */,
-				D4B754E21777E8BA00096B2F /* JSCanvasTests */,
-				D4B754B91777E8BA00096B2F /* Frameworks */,
-				D4B754B81777E8BA00096B2F /* Products */,
+				D4085153177B24F500DC4C1A /* JSCanvas */,
+				D4085175177B24F500DC4C1A /* JSCanvasTests */,
+				D408514C177B24F500DC4C1A /* Frameworks */,
+				D408514B177B24F500DC4C1A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D4B754B81777E8BA00096B2F /* Products */ = {
+		D408514B177B24F500DC4C1A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4B754B71777E8BA00096B2F /* JSCanvas.app */,
-				D4B754DB1777E8BA00096B2F /* JSCanvasTests.xctest */,
+				D408514A177B24F500DC4C1A /* JSCanvas.app */,
+				D408516E177B24F500DC4C1A /* JSCanvasTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D4B754B91777E8BA00096B2F /* Frameworks */ = {
+		D408514C177B24F500DC4C1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D4B754F41777E91600096B2F /* JavaScriptCore.framework */,
-				D4B754BA1777E8BA00096B2F /* Foundation.framework */,
-				D4B754BC1777E8BA00096B2F /* CoreGraphics.framework */,
-				D4B754BE1777E8BA00096B2F /* UIKit.framework */,
-				D4B754DC1777E8BA00096B2F /* XCTest.framework */,
+				D408514D177B24F500DC4C1A /* Foundation.framework */,
+				D408514F177B24F500DC4C1A /* CoreGraphics.framework */,
+				D4085151177B24F500DC4C1A /* UIKit.framework */,
+				D408516F177B24F500DC4C1A /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D4B754C01777E8BA00096B2F /* JSCanvas */ = {
+		D4085153177B24F500DC4C1A /* JSCanvas */ = {
 			isa = PBXGroup;
 			children = (
-				D4B754F21777E8DC00096B2F /* ZBCanvasManager.h */,
-				D4B754F31777E8DC00096B2F /* ZBCanvasManager.m */,
-				D4B754C91777E8BA00096B2F /* ZBAppDelegate.h */,
-				D4B754CA1777E8BA00096B2F /* ZBAppDelegate.m */,
-				D4B754CC1777E8BA00096B2F /* Main.storyboard */,
-				D4D3FB3C1778185E0044E162 /* Preview */,
-				D4D3FB3D177818640044E162 /* Source Editor */,
-				D4B754D51777E8BA00096B2F /* Images.xcassets */,
-				D4B754C11777E8BA00096B2F /* Supporting Files */,
+				D4085195177B3A7300DC4C1A /* Editor */,
+				D4085194177B3A6900DC4C1A /* Preview */,
+				D4085193177B3A5A00DC4C1A /* Canvas Manager */,
+				D4085192177B3A3700DC4C1A /* Documents */,
+				D408515C177B24F500DC4C1A /* ZBAppDelegate.h */,
+				D408515D177B24F500DC4C1A /* ZBAppDelegate.m */,
+				D4085168177B24F500DC4C1A /* Images.xcassets */,
+				D4085154177B24F500DC4C1A /* Supporting Files */,
 			);
 			path = JSCanvas;
 			sourceTree = "<group>";
 		};
-		D4B754C11777E8BA00096B2F /* Supporting Files */ = {
+		D4085154177B24F500DC4C1A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D4B754F91777F45F00096B2F /* sample.js */,
-				D4B754C21777E8BA00096B2F /* JSCanvas-Info.plist */,
-				D4B754C31777E8BA00096B2F /* InfoPlist.strings */,
-				D4B754C61777E8BA00096B2F /* main.m */,
-				D4B754C81777E8BA00096B2F /* JSCanvas-Prefix.pch */,
+				D4085155177B24F500DC4C1A /* JSCanvas-Info.plist */,
+				D4085156177B24F500DC4C1A /* InfoPlist.strings */,
+				D4085159177B24F500DC4C1A /* main.m */,
+				D408515B177B24F500DC4C1A /* JSCanvas-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D4B754E21777E8BA00096B2F /* JSCanvasTests */ = {
+		D4085175177B24F500DC4C1A /* JSCanvasTests */ = {
 			isa = PBXGroup;
 			children = (
-				D4B754E81777E8BA00096B2F /* JSCanvasTests.m */,
-				D4B754E31777E8BA00096B2F /* Supporting Files */,
+				D408517B177B24F500DC4C1A /* JSCanvasTests.m */,
+				D4085176177B24F500DC4C1A /* Supporting Files */,
 			);
 			path = JSCanvasTests;
 			sourceTree = "<group>";
 		};
-		D4B754E31777E8BA00096B2F /* Supporting Files */ = {
+		D4085176177B24F500DC4C1A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D4B754E41777E8BA00096B2F /* JSCanvasTests-Info.plist */,
-				D4B754E51777E8BA00096B2F /* InfoPlist.strings */,
+				D4085177177B24F500DC4C1A /* JSCanvasTests-Info.plist */,
+				D4085178177B24F500DC4C1A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D4D3FB3C1778185E0044E162 /* Preview */ = {
+		D4085192177B3A3700DC4C1A /* Documents */ = {
 			isa = PBXGroup;
 			children = (
-				D4B754F71777F1F000096B2F /* ZBPreviewView.h */,
-				D4B754F81777F1F000096B2F /* ZBPreviewView.m */,
-				D4B754CF1777E8BA00096B2F /* ZBPewviewViewController.h */,
-				D4B754D01777E8BA00096B2F /* ZBPewviewViewController.m */,
+				D4085185177B264700DC4C1A /* ZBDocumentsTableViewController.h */,
+				D4085186177B264700DC4C1A /* ZBDocumentsTableViewController.m */,
+				D4085188177B28BC00DC4C1A /* ZBJavaScriptDocument.h */,
+				D4085189177B28BC00DC4C1A /* ZBJavaScriptDocument.m */,
+			);
+			name = Documents;
+			sourceTree = "<group>";
+		};
+		D4085193177B3A5A00DC4C1A /* Canvas Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D408519C177B3AA100DC4C1A /* ZBCanvasManager.h */,
+				D408519D177B3AA100DC4C1A /* ZBCanvasManager.m */,
+			);
+			name = "Canvas Manager";
+			sourceTree = "<group>";
+		};
+		D4085194177B3A6900DC4C1A /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				D4085196177B3A8700DC4C1A /* ZBPreviewViewController.h */,
+				D4085197177B3A8700DC4C1A /* ZBPreviewViewController.m */,
+				D4085198177B3A8700DC4C1A /* ZBPreviewView.h */,
+				D4085199177B3A8700DC4C1A /* ZBPreviewView.m */,
 			);
 			name = Preview;
 			sourceTree = "<group>";
 		};
-		D4D3FB3D177818640044E162 /* Source Editor */ = {
+		D4085195177B3A7300DC4C1A /* Editor */ = {
 			isa = PBXGroup;
 			children = (
-				D4B754D21777E8BA00096B2F /* ZBSourceEditorViewController.h */,
-				D4B754D31777E8BA00096B2F /* ZBSourceEditorViewController.m */,
+				D408519F177B3AB000DC4C1A /* ZBSourceEditorViewController.h */,
+				D40851A0177B3AB000DC4C1A /* ZBSourceEditorViewController.m */,
 			);
-			name = "Source Editor";
+			name = Editor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D4B754B61777E8BA00096B2F /* JSCanvas */ = {
+		D4085149177B24F500DC4C1A /* JSCanvas */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4B754EC1777E8BA00096B2F /* Build configuration list for PBXNativeTarget "JSCanvas" */;
+			buildConfigurationList = D408517F177B24F500DC4C1A /* Build configuration list for PBXNativeTarget "JSCanvas" */;
 			buildPhases = (
-				D4B754B31777E8BA00096B2F /* Sources */,
-				D4B754B41777E8BA00096B2F /* Frameworks */,
-				D4B754B51777E8BA00096B2F /* Resources */,
+				D4085146177B24F500DC4C1A /* Sources */,
+				D4085147177B24F500DC4C1A /* Frameworks */,
+				D4085148177B24F500DC4C1A /* Resources */,
 			);
 			buildRules = (
 			);
@@ -208,43 +223,43 @@
 			);
 			name = JSCanvas;
 			productName = JSCanvas;
-			productReference = D4B754B71777E8BA00096B2F /* JSCanvas.app */;
+			productReference = D408514A177B24F500DC4C1A /* JSCanvas.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D4B754DA1777E8BA00096B2F /* JSCanvasTests */ = {
+		D408516D177B24F500DC4C1A /* JSCanvasTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4B754EF1777E8BA00096B2F /* Build configuration list for PBXNativeTarget "JSCanvasTests" */;
+			buildConfigurationList = D4085182177B24F500DC4C1A /* Build configuration list for PBXNativeTarget "JSCanvasTests" */;
 			buildPhases = (
-				D4B754D71777E8BA00096B2F /* Sources */,
-				D4B754D81777E8BA00096B2F /* Frameworks */,
-				D4B754D91777E8BA00096B2F /* Resources */,
+				D408516A177B24F500DC4C1A /* Sources */,
+				D408516B177B24F500DC4C1A /* Frameworks */,
+				D408516C177B24F500DC4C1A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D4B754E11777E8BA00096B2F /* PBXTargetDependency */,
+				D4085174177B24F500DC4C1A /* PBXTargetDependency */,
 			);
 			name = JSCanvasTests;
 			productName = JSCanvasTests;
-			productReference = D4B754DB1777E8BA00096B2F /* JSCanvasTests.xctest */;
+			productReference = D408516E177B24F500DC4C1A /* JSCanvasTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D4B754AF1777E8BA00096B2F /* Project object */ = {
+		D4085142177B24F500DC4C1A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ZB;
 				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = "Weizhong Yang";
+				ORGANIZATIONNAME = zonble;
 				TargetAttributes = {
-					D4B754DA1777E8BA00096B2F = {
-						TestTargetID = D4B754B61777E8BA00096B2F;
+					D408516D177B24F500DC4C1A = {
+						TestTargetID = D4085149177B24F500DC4C1A;
 					};
 				};
 			};
-			buildConfigurationList = D4B754B21777E8BA00096B2F /* Build configuration list for PBXProject "JSCanvas" */;
+			buildConfigurationList = D4085145177B24F500DC4C1A /* Build configuration list for PBXProject "JSCanvas" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -252,93 +267,84 @@
 				en,
 				Base,
 			);
-			mainGroup = D4B754AE1777E8BA00096B2F;
-			productRefGroup = D4B754B81777E8BA00096B2F /* Products */;
+			mainGroup = D4085141177B24F500DC4C1A;
+			productRefGroup = D408514B177B24F500DC4C1A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D4B754B61777E8BA00096B2F /* JSCanvas */,
-				D4B754DA1777E8BA00096B2F /* JSCanvasTests */,
+				D4085149177B24F500DC4C1A /* JSCanvas */,
+				D408516D177B24F500DC4C1A /* JSCanvasTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D4B754B51777E8BA00096B2F /* Resources */ = {
+		D4085148177B24F500DC4C1A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4D3FB88177839100044E162 /* sample.js in Resources */,
-				D4B754D61777E8BA00096B2F /* Images.xcassets in Resources */,
-				D4B754C51777E8BA00096B2F /* InfoPlist.strings in Resources */,
-				D4B754CE1777E8BA00096B2F /* Main.storyboard in Resources */,
+				D4085169177B24F500DC4C1A /* Images.xcassets in Resources */,
+				D4085158177B24F500DC4C1A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4B754D91777E8BA00096B2F /* Resources */ = {
+		D408516C177B24F500DC4C1A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B754E71777E8BA00096B2F /* InfoPlist.strings in Resources */,
+				D408517A177B24F500DC4C1A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D4B754B31777E8BA00096B2F /* Sources */ = {
+		D4085146177B24F500DC4C1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B754CB1777E8BA00096B2F /* ZBAppDelegate.m in Sources */,
-				D4D3FB391777F6E20044E162 /* ZBPreviewView.m in Sources */,
-				D4B754D11777E8BA00096B2F /* ZBPewviewViewController.m in Sources */,
-				D4B754F61777E94200096B2F /* ZBCanvasManager.m in Sources */,
-				D4D3FB3A1777FAA20044E162 /* sample.js in Sources */,
-				D4B754D41777E8BA00096B2F /* ZBSourceEditorViewController.m in Sources */,
-				D4B754C71777E8BA00096B2F /* main.m in Sources */,
+				D408515E177B24F500DC4C1A /* ZBAppDelegate.m in Sources */,
+				D408519B177B3A8700DC4C1A /* ZBPreviewView.m in Sources */,
+				D408515A177B24F500DC4C1A /* main.m in Sources */,
+				D4085187177B26C100DC4C1A /* ZBDocumentsTableViewController.m in Sources */,
+				D40851A1177B3AB000DC4C1A /* ZBSourceEditorViewController.m in Sources */,
+				D408518A177B293E00DC4C1A /* ZBJavaScriptDocument.m in Sources */,
+				D408519A177B3A8700DC4C1A /* ZBPreviewViewController.m in Sources */,
+				D408519E177B3AA100DC4C1A /* ZBCanvasManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4B754D71777E8BA00096B2F /* Sources */ = {
+		D408516A177B24F500DC4C1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B754E91777E8BA00096B2F /* JSCanvasTests.m in Sources */,
+				D408517C177B24F500DC4C1A /* JSCanvasTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D4B754E11777E8BA00096B2F /* PBXTargetDependency */ = {
+		D4085174177B24F500DC4C1A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D4B754B61777E8BA00096B2F /* JSCanvas */;
-			targetProxy = D4B754E01777E8BA00096B2F /* PBXContainerItemProxy */;
+			target = D4085149177B24F500DC4C1A /* JSCanvas */;
+			targetProxy = D4085173177B24F500DC4C1A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D4B754C31777E8BA00096B2F /* InfoPlist.strings */ = {
+		D4085156177B24F500DC4C1A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D4B754C41777E8BA00096B2F /* en */,
+				D4085157177B24F500DC4C1A /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		D4B754CC1777E8BA00096B2F /* Main.storyboard */ = {
+		D4085178177B24F500DC4C1A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D4B754CD1777E8BA00096B2F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D4B754E51777E8BA00096B2F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4B754E61777E8BA00096B2F /* en */,
+				D4085179177B24F500DC4C1A /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -346,7 +352,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		D4B754EA1777E8BA00096B2F /* Debug */ = {
+		D408517D177B24F500DC4C1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -383,7 +389,7 @@
 			};
 			name = Debug;
 		};
-		D4B754EB1777E8BA00096B2F /* Release */ = {
+		D408517E177B24F500DC4C1A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -414,7 +420,7 @@
 			};
 			name = Release;
 		};
-		D4B754ED1777E8BA00096B2F /* Debug */ = {
+		D4085180177B24F500DC4C1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -427,7 +433,7 @@
 			};
 			name = Debug;
 		};
-		D4B754EE1777E8BA00096B2F /* Release */ = {
+		D4085181177B24F500DC4C1A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -440,7 +446,7 @@
 			};
 			name = Release;
 		};
-		D4B754F01777E8BA00096B2F /* Debug */ = {
+		D4085183177B24F500DC4C1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JSCanvas.app/JSCanvas";
@@ -462,7 +468,7 @@
 			};
 			name = Debug;
 		};
-		D4B754F11777E8BA00096B2F /* Release */ = {
+		D4085184177B24F500DC4C1A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JSCanvas.app/JSCanvas";
@@ -483,34 +489,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D4B754B21777E8BA00096B2F /* Build configuration list for PBXProject "JSCanvas" */ = {
+		D4085145177B24F500DC4C1A /* Build configuration list for PBXProject "JSCanvas" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D4B754EA1777E8BA00096B2F /* Debug */,
-				D4B754EB1777E8BA00096B2F /* Release */,
+				D408517D177B24F500DC4C1A /* Debug */,
+				D408517E177B24F500DC4C1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4B754EC1777E8BA00096B2F /* Build configuration list for PBXNativeTarget "JSCanvas" */ = {
+		D408517F177B24F500DC4C1A /* Build configuration list for PBXNativeTarget "JSCanvas" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D4B754ED1777E8BA00096B2F /* Debug */,
-				D4B754EE1777E8BA00096B2F /* Release */,
+				D4085180177B24F500DC4C1A /* Debug */,
+				D4085181177B24F500DC4C1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4B754EF1777E8BA00096B2F /* Build configuration list for PBXNativeTarget "JSCanvasTests" */ = {
+		D4085182177B24F500DC4C1A /* Build configuration list for PBXNativeTarget "JSCanvasTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D4B754F01777E8BA00096B2F /* Debug */,
-				D4B754F11777E8BA00096B2F /* Release */,
+				D4085183177B24F500DC4C1A /* Debug */,
+				D4085184177B24F500DC4C1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D4B754AF1777E8BA00096B2F /* Project object */;
+	rootObject = D4085142177B24F500DC4C1A /* Project object */;
 }

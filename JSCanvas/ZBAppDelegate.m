@@ -1,43 +1,32 @@
 #import "ZBAppDelegate.h"
-#import "ZBSourceEditorViewController.h"
+#import "ZBDocumentsTableViewController.h"
 
 @implementation ZBAppDelegate
-{
-	ZBCanvasManager *canvasManager;
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	canvasManager = [[ZBCanvasManager alloc] init];
-	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-	ZBSourceEditorViewController *sourceEditorViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"sourceEditor"];
-	[sourceEditorViewController view];
-	NSString *sampleScript = sourceEditorViewController.currentScript;
-	[canvasManager loadJavaScript:sampleScript];
-	return YES;
+	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+	ZBDocumentsTableViewController *documentsController = [[ZBDocumentsTableViewController alloc] initWithStyle:UITableViewStylePlain];
+	self.navigationController = [[UINavigationController alloc] initWithRootViewController:documentsController];
+	self.navigationController.toolbarHidden = NO;
+	self.window.rootViewController = self.navigationController;
+	[self.window makeKeyAndVisible];
+    return YES;
 }
-							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
 }
-
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
 }
-
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
 }
-
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
 }
-
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 }
-
-@synthesize window;
-@synthesize canvasManager;
 
 @end
