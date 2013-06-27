@@ -39,16 +39,9 @@ var onDraw = function() {
     Line(160, 160, 160 + hX, 160 + hY);
 
     FillOval(150, 150, 20, 20);
-
-    if (currentLocation && currentLocation != null) {
-        SetFillColor(255, 0, 0, 100);
-        FillOval(currentLocation.x - 25,
-                 currentLocation.y - 25, 50, 50);
-    }
 };
 
-var currentLocation = null;
-
 var onTap = function(location) {
-    currentLocation = location;
+	var d = new Date();
+	Say("Current time:" + d);
 };

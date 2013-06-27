@@ -15,4 +15,5 @@ var onDraw = function() {
 
 var onTap = function(location) {
     count++;
+	Say(count);
 };
