@@ -18,9 +18,9 @@
 	self.navigationItem.leftBarButtonItem = newItem;
 	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-	UIBarButtonItem *moreOptionItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"More", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(showMoreOptions:)];
+	UIBarButtonItem *importItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Import...", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(import:)];
 	UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
-	self.toolbarItems = @[spaceItem, moreOptionItem];
+	self.toolbarItems = @[importItem, spaceItem];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,9 +63,9 @@
 	[self.tableView reloadData];
 }
 
-- (IBAction)showMoreOptions:(id)sender
+- (IBAction)import:(id)sender
 {
-	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"More Options", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Load Samples", @""), nil];
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Import", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Samples", @""), nil];
 	[actionSheet showFromBarButtonItem:sender animated:YES];
 }
 

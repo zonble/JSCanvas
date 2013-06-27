@@ -1,3 +1,6 @@
+var setup = function() {
+};
+
 var x = 160;
 var y = 320;
 
@@ -6,7 +9,7 @@ var onDraw = function() {
     FillOval(x - 25, y - 50, 50, 50);
     SetStrokeColor(0, 0, 0, 255);
     Line(0, y, 320, y);
-    Text("Tap to move!", 10, 330);
+    Text("Tap on left or right to move!", 10, 330);
 };
 
 var onTap = function(location) {

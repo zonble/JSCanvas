@@ -96,6 +96,11 @@
 		NSDictionary *attr = @{NSFontAttributeName: font, NSForegroundColorAttributeName: this.color};
 		[text drawAtPoint:CGPointMake([x doubleValue], [y doubleValue]) withAttributes:attr];
 	};
+	javaScriptContext[@"TextBox"] = ^(NSString *text, NSNumber *x, NSNumber *y, NSNumber *w, NSNumber *h) {
+		UIFont *font = [UIFont fontWithName:this.fontName size:this.fontSize];
+		NSDictionary *attr = @{NSFontAttributeName: font, NSForegroundColorAttributeName: this.color};
+		[text drawInRect:CGRectMake([x doubleValue], [y doubleValue], [w doubleValue], [h doubleValue]) withAttributes:attr];
+	};
 	javaScriptContext[@"Say"] = ^(NSString *text) {
 		if (this.drawing) {
 			return;
@@ -104,6 +109,21 @@
 		AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:text];
 		utterance.voice = voice;
 		[this.speechSynthesizer speakUtterance:utterance];
+	};
+	javaScriptContext[@"Ajax"] = ^(NSString *URLString, JSValue *callback) {
+		if (this.drawing) {
+			return ;
+		}
+		NSURL *URL = [NSURL URLWithString:URLString];
+		if (!URL) {
+			return;
+		}
+		[[NSURLSession sharedSession] dataTaskWithHTTPGetRequest:URL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+			NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+			if (callback) {
+				[callback callWithArguments:@[responseString]];
+			}
+		}];
 	};
 }
 
@@ -121,6 +141,9 @@
 - (void)loadJavaScript:(NSString *)script
 {
 	[javaScriptContext evaluateScript:script];
+	if (javaScriptContext[@"setup"]) {
+		[javaScriptContext[@"setup"] callWithArguments:nil];
+	}
 }
 
 - (void)runJavaScriptDrawingFunction

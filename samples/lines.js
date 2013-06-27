@@ -1,3 +1,5 @@
+// Draw lines using random colors.
+
 var offset = 0;
 
 var randromColor = function() {
