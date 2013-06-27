@@ -12,7 +12,16 @@
 	self.window.rootViewController = self.navigationController;
 	[self.window setTintColor:[UIColor colorWithHue:0.1 saturation:1.0 brightness:0.5 alpha:1.0]];
 	[self.window makeKeyAndVisible];
-    return YES;
+
+	NSString *key = @"WelcomeMessageEverShown";
+	if (![[NSUserDefaults standardUserDefaults] boolForKey:key]) {
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Welcome to JSCanvas!", @"") message:NSLocalizedString(@"JSCanvas is a Processing-inspired iOS app. It let you create cool scripts running on your device using JavaScript language. Enjoy it!", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"") otherButtonTitles: nil];
+		[alertView show];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:key];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+	}
+
+	return YES;
 }
 - (void)applicationWillResignActive:(UIApplication *)application
 {

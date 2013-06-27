@@ -29,6 +29,7 @@
 		D40851A7177B46FD00DC4C1A /* ZBSamplesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40851A6177B46CE00DC4C1A /* ZBSamplesTableViewController.m */; };
 		D4B96746177BCE27004C95CD /* template.js in Sources */ = {isa = PBXBuildFile; fileRef = D4B96745177BCE27004C95CD /* template.js */; };
 		D4B96747177BCE36004C95CD /* template.js in Resources */ = {isa = PBXBuildFile; fileRef = D4B96745177BCE27004C95CD /* template.js */; };
+		D4B96749177BE178004C95CD /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B96748177BE178004C95CD /* QuickLook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		D40851A5177B46CE00DC4C1A /* ZBSamplesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSamplesTableViewController.h; sourceTree = "<group>"; };
 		D40851A6177B46CE00DC4C1A /* ZBSamplesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSamplesTableViewController.m; sourceTree = "<group>"; };
 		D4B96745177BCE27004C95CD /* template.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = template.js; sourceTree = "<group>"; };
+		D4B96748177BE178004C95CD /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B96749177BE178004C95CD /* QuickLook.framework in Frameworks */,
 				D4085150177B24F500DC4C1A /* CoreGraphics.framework in Frameworks */,
 				D4085152177B24F500DC4C1A /* UIKit.framework in Frameworks */,
 				D408514E177B24F500DC4C1A /* Foundation.framework in Frameworks */,
@@ -122,6 +125,7 @@
 		D408514C177B24F500DC4C1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4B96748177BE178004C95CD /* QuickLook.framework */,
 				D408514D177B24F500DC4C1A /* Foundation.framework */,
 				D408514F177B24F500DC4C1A /* CoreGraphics.framework */,
 				D4085151177B24F500DC4C1A /* UIKit.framework */,

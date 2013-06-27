@@ -1,3 +1,5 @@
+@import QuickLook;
+
 @class ZBSamplesTableViewController;
 
 @protocol ZBSamplesTableViewControllerDelegate <NSObject>

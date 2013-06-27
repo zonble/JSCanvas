@@ -110,7 +110,7 @@
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 	}
-	cell.textLabel.text = self.files[indexPath.row];
+	cell.textLabel.text = [self.files[indexPath.row] stringByDeletingPathExtension];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	cell.imageView.image = [UIImage imageNamed:@"doc"];
 	return cell;

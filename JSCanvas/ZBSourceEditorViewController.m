@@ -17,11 +17,11 @@
 
 - (instancetype)initWithDocoment:(ZBJavaScriptDocument *)inDocument
 {
-    self = [super init];
-    if (self) {
-        document = inDocument;
-    }
-    return self;
+	self = [super init];
+	if (self) {
+		document = inDocument;
+	}
+	return self;
 }
 
 - (void)loadView
@@ -49,7 +49,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 	self.textView.text = self.document.text;
-	self.title = [[self.document.fileURL path] lastPathComponent];
+	self.title = [[[self.document.fileURL path] lastPathComponent] stringByDeletingPathExtension];
 	UIBarButtonItem *moreOptionItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"More", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(showMoreOptions:)];
 	UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
 	self.toolbarItems = @[spaceItem, moreOptionItem];

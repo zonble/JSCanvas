@@ -1,8 +1,9 @@
 #import "ZBSamplesTableViewController.h"
 
-@interface ZBSamplesTableViewController ()
+@interface ZBSamplesTableViewController () <QLPreviewControllerDataSource, QLPreviewControllerDelegate>
 {
 	NSArray *files;
+	QLPreviewController *previewController;
 }
 @end
 
@@ -11,6 +12,12 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+	if (!previewController) {
+		previewController = [[QLPreviewController alloc] init];
+		previewController.dataSource = self;
+		previewController.delegate = self;
+	}
+
 	NSString *sampleFolderPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"samples"];
 	NSDirectoryEnumerator *e = [[NSFileManager defaultManager] enumeratorAtPath:sampleFolderPath];
 	NSMutableArray *sampleFiles = [NSMutableArray array];
@@ -54,8 +61,9 @@
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 	}
-	cell.textLabel.text = files[indexPath.row];
+	cell.textLabel.text = [files[indexPath.row] stringByDeletingPathExtension];;
 	cell.imageView.image = [UIImage imageNamed:@"doc"];
+	cell.accessoryType = UITableViewCellAccessoryDetailButton;
 	return cell;
 }
 
@@ -69,5 +77,28 @@
 	[self.delegate samplesTableViewController:self didSelectFileAtURL:fileURL];
 	[self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+	previewController.currentPreviewItemIndex = indexPath.row;
+	NSUInteger option = UIExtendedEdgeLeft | UIExtendedEdgeBottom | UIExtendedEdgeRight;
+	[previewController setEdgesForExtendedLayout:option];
+	[self.navigationController pushViewController:previewController animated:YES];
+}
+
+- (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller
+{
+	return [files count];
+}
+
+- (id <QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index
+{
+	NSString *filename = files[index];
+	NSString *sampleFolderPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"samples"];
+	NSString *fullPath = [sampleFolderPath stringByAppendingPathComponent:filename];
+	NSURL *fileURL = [NSURL fileURLWithPath:fullPath];
+	return fileURL;
+}
+
 
 @end
