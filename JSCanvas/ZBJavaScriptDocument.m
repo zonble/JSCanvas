@@ -96,7 +96,6 @@
 
 - (BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError **)outError
 {
-	NSLog(@"%s", __PRETTY_FUNCTION__);
 	NSString *existingText = [[NSString alloc] initWithData:contents encoding:NSUTF8StringEncoding];
 	[text setString:existingText ? existingText : @""];
 	return YES;
