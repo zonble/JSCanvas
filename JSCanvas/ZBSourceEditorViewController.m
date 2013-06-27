@@ -39,7 +39,7 @@
 	self.textView = textView;
 	[self.view addSubview:self.textView];
 
-	UIBarButtonItem *runItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Run", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(run:)];
+	UIBarButtonItem *runItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Run", @"") style:UIBarButtonItemStyleDone target:self action:@selector(run:)];
 	self.navigationItem.rightBarButtonItem = runItem;
 }
 
@@ -82,33 +82,24 @@
 
 	CGRect imageFrame = [self.view convertRect:controller.backgroundImageView.frame fromView:controller.view];
 	UIGraphicsBeginImageContextWithOptions(imageFrame.size, YES, [UIScreen mainScreen].scale);
-	imageFrame.origin.y -= 44;
-	imageFrame.size.height += 44;
+	imageFrame.origin.y -= 36;
+	imageFrame.size.height += 36;
 	[self.view drawViewHierarchyInRect:imageFrame];
 	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
 
-//	CIContext *context = [CIContext contextWithOptions:nil];
-//	CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
-//	[filter setDefaults];
-//	[filter setValue:[[CIImage alloc] initWithImage:newImage] forKey:kCIInputImageKey];
-//	[filter setValue:@3.0f forKey:@"inputRadius"];
-//	CIImage *effectedImage = [filter valueForKey:kCIOutputImageKey];
-//	CGImageRef cgImage = [context createCGImage:effectedImage fromRect:[effectedImage extent]];
-//	UIImage *finalImage = [UIImage imageWithCGImage:cgImage];
+	CIContext *context = [CIContext contextWithOptions:nil];
+	CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+	[filter setDefaults];
+	[filter setValue:[[CIImage alloc] initWithImage:newImage] forKey:kCIInputImageKey];
+	[filter setValue:@2.0f forKey:@"inputRadius"];
+	CIImage *effectedImage = [filter valueForKey:kCIOutputImageKey];
+	CGImageRef cgImage = [context createCGImage:effectedImage fromRect:[effectedImage extent]];
+	UIImage *finalImage = [UIImage imageWithCGImage:cgImage];
 
-	[self.navigationController presentViewController:navController animated:NO completion:^ {
-		CIContext *context = [CIContext contextWithOptions:nil];
-		CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
-		[filter setDefaults];
-		[filter setValue:[[CIImage alloc] initWithImage:newImage] forKey:kCIInputImageKey];
-		[filter setValue:@3.0f forKey:@"inputRadius"];
-		CIImage *effectedImage = [filter valueForKey:kCIOutputImageKey];
-		CGImageRef cgImage = [context createCGImage:effectedImage fromRect:[effectedImage extent]];
-		UIImage *finalImage = [UIImage imageWithCGImage:cgImage];
+	controller.backgroundImageView.image = finalImage;
 
-		controller.backgroundImageView.image = finalImage;
-	}];
+	[self.navigationController presentViewController:navController animated:NO completion:nil];
 
 }
 

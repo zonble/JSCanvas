@@ -32,6 +32,7 @@
 		D4B9674B177BF04F004C95CD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9674A177BF04F004C95CD /* QuartzCore.framework */; };
 		D4B9674D177BF0A6004C95CD /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9674C177BF0A6004C95CD /* CoreImage.framework */; };
 		D4B96754177C0E6F004C95CD /* template.js in Resources */ = {isa = PBXBuildFile; fileRef = D4B96745177BCE27004C95CD /* template.js */; };
+		D4B96756177C3D8A004C95CD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B96755177C3D8A004C95CD /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		D4B96748177BE178004C95CD /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		D4B9674A177BF04F004C95CD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D4B9674C177BF0A6004C95CD /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		D4B96755177C3D8A004C95CD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B96756177C3D8A004C95CD /* AVFoundation.framework in Frameworks */,
 				D4B9674D177BF0A6004C95CD /* CoreImage.framework in Frameworks */,
 				D4B9674B177BF04F004C95CD /* QuartzCore.framework in Frameworks */,
 				D4B96749177BE178004C95CD /* QuickLook.framework in Frameworks */,
@@ -131,6 +134,7 @@
 		D408514C177B24F500DC4C1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4B96755177C3D8A004C95CD /* AVFoundation.framework */,
 				D4B9674C177BF0A6004C95CD /* CoreImage.framework */,
 				D4B9674A177BF04F004C95CD /* QuartzCore.framework */,
 				D4B96748177BE178004C95CD /* QuickLook.framework */,

@@ -1,7 +1,14 @@
+var randromColor = function() {
+    var r = Math.random() * 255;
+    var g = Math.random() * 255;
+    var b = Math.random() * 255;
+    SetFillColor(r, g, b, 128);
+}
+
 var onDraw = function() {
     for (var i = 6; i >= 0; i--) {
         if (i % 2 == 0) {
-             SetFillColor(255, 0, 0, 255);
+             randromColor();
         }
         else {
              SetFillColor(255, 255, 255, 255);

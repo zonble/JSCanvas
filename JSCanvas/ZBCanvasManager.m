@@ -1,15 +1,20 @@
 #import "ZBCanvasManager.h"
+#import <AVFoundation/AVSpeechSynthesis.h>
 
 @interface ZBCanvasManager()
 @property (strong, nonatomic) UIColor *color;
 @property (assign, nonatomic) CGFloat lineWidth;
 @property (strong, nonatomic) NSString *fontName;
 @property (assign, nonatomic) CGFloat fontSize;
+@property (readonly, nonatomic) BOOL drawing;
+@property (readonly, nonatomic) AVSpeechSynthesizer *speechSynthesizer;
 @end
 
 @implementation ZBCanvasManager
 {
+	BOOL drawing;
 	JSContext *javaScriptContext;
+	AVSpeechSynthesizer *speechSynthesizer;
 }
 
 - (UIColor *)_colorWithR:(NSNumber *)r G:(NSNumber *)g B:(NSNumber *)b A:(NSNumber *)a
@@ -91,6 +96,15 @@
 		NSDictionary *attr = @{NSFontAttributeName: font, NSForegroundColorAttributeName: this.color};
 		[text drawAtPoint:CGPointMake([x doubleValue], [y doubleValue]) withAttributes:attr];
 	};
+	javaScriptContext[@"Say"] = ^(NSString *text) {
+		if (this.drawing) {
+			return;
+		}
+		AVSpeechSynthesisVoice *voice = [AVSpeechSynthesisVoice voiceWithLanguage:[AVSpeechSynthesisVoice currentLanguageCode]];
+		AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:text];
+		utterance.voice = voice;
+		[this.speechSynthesizer speakUtterance:utterance];
+	};
 }
 
 - (id)init
@@ -98,6 +112,7 @@
 	self = [super init];
 	if (self) {
 		javaScriptContext = [[JSContext alloc] init];
+		speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
 		[self _initJavaScriptObjects];
 	}
 	return self;
@@ -111,7 +126,9 @@
 - (void)runJavaScriptDrawingFunction
 {
 	if (javaScriptContext[@"onDraw"]) {
+		drawing = YES;
 		[javaScriptContext[@"onDraw"] callWithArguments:nil];
+		drawing = NO;
 	}
 }
 
@@ -121,5 +138,8 @@
 		[javaScriptContext[@"onTap"] callWithArguments:@[[JSValue valueWithPoint:inLocation inContext:javaScriptContext]]];
 	}
 }
+
+@synthesize drawing;
+@synthesize speechSynthesizer;
 
 @end
