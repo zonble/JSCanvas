@@ -39,15 +39,35 @@
 	view.backgroundColor = [UIColor whiteColor];
 	self.view = view;
 
+	UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+	imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+	imageView.backgroundColor = [UIColor whiteColor];
+	imageView.alpha = 0.2;
+	self.backgroundImageView = imageView;
+	[self.view addSubview:self.backgroundImageView];
+
 	ZBPreviewView *previewView = [[ZBPreviewView alloc] initWithFrame:self.view.bounds];
-	previewView.backgroundColor = [UIColor whiteColor];
+	previewView.backgroundColor = [UIColor clearColor];
+	previewView.clipsToBounds = NO;
+	previewView.layer.masksToBounds = NO;
 	previewView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	self.previewView = previewView;
 	self.previewView.delegate = self;
 	[self.view addSubview:self.previewView];
 
+	UIInterpolatingMotionEffect *interpolationHorizontal = [[UIInterpolatingMotionEffect alloc]initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+	interpolationHorizontal.minimumRelativeValue = @-20.0;
+	interpolationHorizontal.maximumRelativeValue = @20.0;
+
+	UIInterpolatingMotionEffect *interpolationVertical = [[UIInterpolatingMotionEffect alloc]initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+	interpolationVertical.minimumRelativeValue = @-20.0;
+	interpolationVertical.maximumRelativeValue = @20.0;
+
+	[self.previewView addMotionEffect:interpolationHorizontal];
+	[self.previewView addMotionEffect:interpolationVertical];
+
 	UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Close", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(close:)];
-	self.navigationItem.leftBarButtonItem = closeItem;
+	self.navigationItem.rightBarButtonItem = closeItem;
 }
 
 - (void)viewDidLoad
@@ -73,7 +93,7 @@
 
 - (IBAction)close:(id)sender
 {
-	[self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+	[self.navigationController.presentingViewController dismissViewControllerAnimated:NO completion:nil];
 }
 
 #pragma mark -
@@ -88,6 +108,9 @@
 
 - (void)previewViewDidRequestDrawingFunction:(ZBPreviewView *)inView
 {
+	if (!self.backgroundImageView.image) {
+		return;
+	}
 	[canvasManager runJavaScriptDrawingFunction];
 }
 

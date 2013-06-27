@@ -7,5 +7,6 @@
 - (instancetype)initWithJavaScript:(NSString *)inJavaScript;
 - (IBAction)close:(id)sender;
 
-@property (retain, nonatomic) IBOutlet ZBPreviewView *previewView;
+@property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (strong, nonatomic) IBOutlet ZBPreviewView *previewView;
 @end

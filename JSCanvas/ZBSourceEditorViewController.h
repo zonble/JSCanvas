@@ -1,6 +1,7 @@
 /*!
  * The controller to help editing JavaScript source code.
  */
+@import CoreImage;
 #import "ZBJavaScriptDocument.h"
 
 @interface ZBSourceEditorViewController : UIViewController

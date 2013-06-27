@@ -49,7 +49,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 	self.textView.text = self.document.text;
-	self.title = [[[self.document.fileURL path] lastPathComponent] stringByDeletingPathExtension];
+//	self.title = [[[self.document.fileURL path] lastPathComponent] stringByDeletingPathExtension];
 	UIBarButtonItem *moreOptionItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"More", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(showMoreOptions:)];
 	UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
 	self.toolbarItems = @[spaceItem, moreOptionItem];
@@ -74,9 +74,42 @@
 	[self.textView resignFirstResponder];
 	NSString *script = self.textView.text;
 	ZBPreviewViewController *controller = [[ZBPreviewViewController alloc] initWithJavaScript:script];
+	controller.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+	[controller view];
 	controller.title = self.title;
 	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-	[self.navigationController presentViewController:navController animated:YES completion:nil];
+	[navController view];
+
+	CGRect imageFrame = [self.view convertRect:controller.backgroundImageView.frame fromView:controller.view];
+	UIGraphicsBeginImageContextWithOptions(imageFrame.size, YES, [UIScreen mainScreen].scale);
+	imageFrame.origin.y -= 44;
+	imageFrame.size.height += 44;
+	[self.view drawViewHierarchyInRect:imageFrame];
+	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+
+//	CIContext *context = [CIContext contextWithOptions:nil];
+//	CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+//	[filter setDefaults];
+//	[filter setValue:[[CIImage alloc] initWithImage:newImage] forKey:kCIInputImageKey];
+//	[filter setValue:@3.0f forKey:@"inputRadius"];
+//	CIImage *effectedImage = [filter valueForKey:kCIOutputImageKey];
+//	CGImageRef cgImage = [context createCGImage:effectedImage fromRect:[effectedImage extent]];
+//	UIImage *finalImage = [UIImage imageWithCGImage:cgImage];
+
+	[self.navigationController presentViewController:navController animated:NO completion:^ {
+		CIContext *context = [CIContext contextWithOptions:nil];
+		CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+		[filter setDefaults];
+		[filter setValue:[[CIImage alloc] initWithImage:newImage] forKey:kCIInputImageKey];
+		[filter setValue:@3.0f forKey:@"inputRadius"];
+		CIImage *effectedImage = [filter valueForKey:kCIOutputImageKey];
+		CGImageRef cgImage = [context createCGImage:effectedImage fromRect:[effectedImage extent]];
+		UIImage *finalImage = [UIImage imageWithCGImage:cgImage];
+
+		controller.backgroundImageView.image = finalImage;
+	}];
+
 }
 
 - (IBAction)showMoreOptions:(id)sender
