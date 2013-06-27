@@ -112,6 +112,7 @@
 	}
 	cell.textLabel.text = self.files[indexPath.row];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	cell.imageView.image = [UIImage imageNamed:@"doc"];
 	return cell;
 }
 
