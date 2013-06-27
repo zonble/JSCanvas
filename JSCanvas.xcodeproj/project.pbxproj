@@ -28,10 +28,10 @@
 		D40851A4177B469100DC4C1A /* samples in Resources */ = {isa = PBXBuildFile; fileRef = D40851A3177B469100DC4C1A /* samples */; };
 		D40851A7177B46FD00DC4C1A /* ZBSamplesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40851A6177B46CE00DC4C1A /* ZBSamplesTableViewController.m */; };
 		D4B96746177BCE27004C95CD /* template.js in Sources */ = {isa = PBXBuildFile; fileRef = D4B96745177BCE27004C95CD /* template.js */; };
-		D4B96747177BCE36004C95CD /* template.js in Resources */ = {isa = PBXBuildFile; fileRef = D4B96745177BCE27004C95CD /* template.js */; };
 		D4B96749177BE178004C95CD /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B96748177BE178004C95CD /* QuickLook.framework */; };
 		D4B9674B177BF04F004C95CD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9674A177BF04F004C95CD /* QuartzCore.framework */; };
 		D4B9674D177BF0A6004C95CD /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B9674C177BF0A6004C95CD /* CoreImage.framework */; };
+		D4B96754177C0E6F004C95CD /* template.js in Resources */ = {isa = PBXBuildFile; fileRef = D4B96745177BCE27004C95CD /* template.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,7 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B96747177BCE36004C95CD /* template.js in Resources */,
+				D4B96754177C0E6F004C95CD /* template.js in Resources */,
 				D40851A4177B469100DC4C1A /* samples in Resources */,
 				D4085169177B24F500DC4C1A /* Images.xcassets in Resources */,
 				D4085158177B24F500DC4C1A /* InfoPlist.strings in Resources */,

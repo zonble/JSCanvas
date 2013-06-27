@@ -19,7 +19,6 @@
 	self = [super init];
 	if (self) {
 		canvasManager = [[ZBCanvasManager alloc] init];
-		canvasManager.delegate = self;
 		[canvasManager loadJavaScript:inJavaScript];
 	}
 	return self;

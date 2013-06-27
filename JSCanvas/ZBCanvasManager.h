@@ -2,10 +2,6 @@
 @import UIKit;
 @import JavaScriptCore;
 
-@class ZBCanvasManager;
-@protocol ZBCanvasManagerDelegate <NSObject>
-@end
-
 /*! An object which manages our JavaScript context. It loads and
  *  evaluate JavaScript code, and provides the drawing function to be
  *  called by views. */
@@ -21,7 +17,5 @@
  *  method of a UIView subclass. */
 - (void)runJavaScriptDrawingFunction;
 - (void)runJavaScriptTapFunctionWithLocation:(CGPoint)inLocation;
-
-@property (weak, nonatomic) id <ZBCanvasManagerDelegate> delegate;
 
 @end
