@@ -91,7 +91,7 @@
 
 - (id)contentsForType:(NSString *)typeName error:(NSError **)outError
 {
-	return [NSData dataWithBytes:[text UTF8String] length:[text length]];
+	return [NSData dataWithBytes:[text UTF8String] length:strlen([text UTF8String])];
 }
 
 - (BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError **)outError

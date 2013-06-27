@@ -43,6 +43,7 @@
 
 - (void)_loadDocument:(ZBJavaScriptDocument *)document
 {
+	[[UIApplication sharedApplication] beginIgnoringInteractionEvents];
 	[document openWithCompletionHandler:^(BOOL success) {
 		if (success) {
 			ZBSourceEditorViewController *controller = [[ZBSourceEditorViewController alloc] initWithDocoment:document];
@@ -52,6 +53,7 @@
 			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failed to open the document!", @"") message:@"" delegate:Nil cancelButtonTitle:NSLocalizedString(@"Dismiss", @"") otherButtonTitles:nil];
 			[alert show];
 		}
+		[[UIApplication sharedApplication] endIgnoringInteractionEvents];
 	}];
 }
 

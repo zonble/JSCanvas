@@ -141,7 +141,10 @@
 {
 	NSString *script = self.textView.text;
 	[self.document.text setString:script];
-	[self.document saveToURL:self.document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:nil];
+	[[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+	[self.document saveToURL:self.document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^ (BOOL success){
+		[[UIApplication sharedApplication] endIgnoringInteractionEvents];
+	}];
 }
 
 @synthesize document;
