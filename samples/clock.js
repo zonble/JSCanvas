@@ -1,6 +1,6 @@
 // Please write your own drawing code within in "onDraw" function.
 
-onDraw = function () {
+var onDraw = function () {
 	SetColor(200, 200, 200, 255);
 	SetFontName("Marker Felt");
 	SetFontSize(32);
@@ -39,7 +39,14 @@ onDraw = function () {
 
 	FillOval(150, 150, 20, 20);
 
-	var location = TouchLocation();
-	SetFillColor(255, 0, 0, 100);
-	FillOval(location.x - 25, location.y - 25, 50, 50);
+	if (currentLocation && currentLocation != null) {
+		SetFillColor(255, 0, 0, 100);
+		FillOval(currentLocation.x - 25, currentLocation.y - 25, 50, 50);
+	}
+};
+
+var currentLocation = null;
+
+var onTap = function(location) {
+	currentLocation = location;
 };

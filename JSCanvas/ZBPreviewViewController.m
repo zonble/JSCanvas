@@ -3,7 +3,6 @@
 @interface ZBPreviewViewController ()
 {
 	NSTimer *timer;
-	UITouch *lastTouch;
 	ZBCanvasManager *canvasManager;
 }
 @end
@@ -17,13 +16,13 @@
 
 - (instancetype)initWithJavaScript:(NSString *)inJavaScript
 {
-    self = [super init];
-    if (self) {
+	self = [super init];
+	if (self) {
 		canvasManager = [[ZBCanvasManager alloc] init];
 		canvasManager.delegate = self;
 		[canvasManager loadJavaScript:inJavaScript];
-    }
-    return self;
+	}
+	return self;
 }
 
 - (void)timerMethod:(NSTimer *)inTimer
@@ -57,6 +56,9 @@
 	NSUInteger option = UIExtendedEdgeLeft | UIExtendedEdgeBottom | UIExtendedEdgeRight;
 	[self setEdgesForExtendedLayout:option];
 
+	UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+	[self.previewView addGestureRecognizer:tapGR];
+
 	if (!timer) {
 		timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerMethod:) userInfo:nil repeats:YES];
 	}
@@ -67,9 +69,19 @@
 	[super didReceiveMemoryWarning];
 }
 
+#pragma mark - Interface Builder actions
+
 - (IBAction)close:(id)sender
 {
 	[self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark -
+
+- (void)tap:(UITapGestureRecognizer *)tapGR
+{
+	CGPoint point = [tapGR locationInView:tapGR.view];
+	[canvasManager runJavaScriptTapFunctionWithLocation:point];
 }
 
 #pragma mark ZBPreviewViewDelegate
@@ -77,36 +89,6 @@
 - (void)previewViewDidRequestDrawingFunction:(ZBPreviewView *)inView
 {
 	[canvasManager runJavaScriptDrawingFunction];
-}
-
-#pragma mark ZBCanvasManagerDelegate
-
-- (CGPoint)canvasManagerRequestLastTouchLocation:(ZBCanvasManager *)manager
-{
-	return [lastTouch locationInView:self.previewView];
-}
-
-#pragma mark -
-#pragma mark UIResponder methods
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	lastTouch = [touches anyObject];
-}
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	lastTouch = [touches anyObject];
-}
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	lastTouch = nil;
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	lastTouch = [touches anyObject];
 }
 
 @end

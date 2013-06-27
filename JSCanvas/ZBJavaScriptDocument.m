@@ -1,7 +1,5 @@
 #import "ZBJavaScriptDocument.h"
 
-static NSString *const kTemplate = @"onDraw = function() {\n};";
-
 @interface ZBJavaScriptDocument()
 {
 	NSMutableString *text;
@@ -32,7 +30,7 @@ static NSString *const kTemplate = @"onDraw = function() {\n};";
 	}
 }
 
-+ (NSArray *)existingFiles
++ (NSArray *)AllExistingFiles
 {
 	[self checkIfScriptDocumentFolderExiists];
 	NSMutableArray *files = [NSMutableArray array];
@@ -59,7 +57,9 @@ static NSString *const kTemplate = @"onDraw = function() {\n};";
 
 + (ZBJavaScriptDocument *)createNewDocument
 {
-	NSArray *existingFiles = [self existingFiles];
+	NSURL *templateFileURL = [[NSBundle mainBundle] URLForResource:@"template" withExtension:@"js"];
+	NSString *template = [NSString stringWithContentsOfURL:templateFileURL encoding:NSUTF8StringEncoding error:nil];
+	NSArray *existingFiles = [self AllExistingFiles];
 	NSString *filename = @"newscript.js";
 	NSInteger index = 0;
 	while ([existingFiles containsObject:filename]) {
@@ -67,7 +67,7 @@ static NSString *const kTemplate = @"onDraw = function() {\n};";
 	}
 	NSURL *fileURL = [self fileURLWithFileName:filename];
 	ZBJavaScriptDocument *document = [[ZBJavaScriptDocument alloc] initWithFileURL:fileURL];
-	[document.text setString:kTemplate];
+	[document.text setString:template];
 	[document saveToURL:fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
 	}];
 	return document;
@@ -82,11 +82,11 @@ static NSString *const kTemplate = @"onDraw = function() {\n};";
 
 - (id)initWithFileURL:(NSURL *)url
 {
-    self = [super initWithFileURL:url];
-    if (self) {
-        text = [[NSMutableString alloc] init];
-    }
-    return self;
+	self = [super initWithFileURL:url];
+	if (self) {
+		text = [[NSMutableString alloc] init];
+	}
+	return self;
 }
 
 - (id)contentsForType:(NSString *)typeName error:(NSError **)outError
@@ -99,7 +99,7 @@ static NSString *const kTemplate = @"onDraw = function() {\n};";
 	NSLog(@"%s", __PRETTY_FUNCTION__);
 	NSString *existingText = [[NSString alloc] initWithData:contents encoding:NSUTF8StringEncoding];
 	[text setString:existingText ? existingText : @""];
- 	return YES;
+	return YES;
 }
 
 @synthesize text;

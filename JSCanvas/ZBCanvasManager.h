@@ -4,7 +4,6 @@
 
 @class ZBCanvasManager;
 @protocol ZBCanvasManagerDelegate <NSObject>
-- (CGPoint)canvasManagerRequestLastTouchLocation:(ZBCanvasManager *)manager;
 @end
 
 /*! An object which manages our JavaScript context. It loads and
@@ -21,6 +20,7 @@
  *  before. The method is expected to be called within the "drawRect:"
  *  method of a UIView subclass. */
 - (void)runJavaScriptDrawingFunction;
+- (void)runJavaScriptTapFunctionWithLocation:(CGPoint)inLocation;
 
 @property (weak, nonatomic) id <ZBCanvasManagerDelegate> delegate;
 

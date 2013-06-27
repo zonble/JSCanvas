@@ -3,7 +3,7 @@
  */
 @interface ZBJavaScriptDocument : UIDocument
 
-+ (NSArray *)existingFiles;
++ (NSArray *)AllExistingFiles;
 + (ZBJavaScriptDocument *)createNewDocument;
 + (NSURL *)fileURLWithFileName:(NSString *)inFileName;
 

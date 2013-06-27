@@ -27,6 +27,8 @@
 		D40851A1177B3AB000DC4C1A /* ZBSourceEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40851A0177B3AB000DC4C1A /* ZBSourceEditorViewController.m */; };
 		D40851A4177B469100DC4C1A /* samples in Resources */ = {isa = PBXBuildFile; fileRef = D40851A3177B469100DC4C1A /* samples */; };
 		D40851A7177B46FD00DC4C1A /* ZBSamplesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40851A6177B46CE00DC4C1A /* ZBSamplesTableViewController.m */; };
+		D4B96746177BCE27004C95CD /* template.js in Sources */ = {isa = PBXBuildFile; fileRef = D4B96745177BCE27004C95CD /* template.js */; };
+		D4B96747177BCE36004C95CD /* template.js in Resources */ = {isa = PBXBuildFile; fileRef = D4B96745177BCE27004C95CD /* template.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,7 @@
 		D40851A3177B469100DC4C1A /* samples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = samples; sourceTree = SOURCE_ROOT; };
 		D40851A5177B46CE00DC4C1A /* ZBSamplesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSamplesTableViewController.h; sourceTree = "<group>"; };
 		D40851A6177B46CE00DC4C1A /* ZBSamplesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSamplesTableViewController.m; sourceTree = "<group>"; };
+		D4B96745177BCE27004C95CD /* template.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = template.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,7 @@
 		D4085154177B24F500DC4C1A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D4B96745177BCE27004C95CD /* template.js */,
 				D40851A3177B469100DC4C1A /* samples */,
 				D4085155177B24F500DC4C1A /* JSCanvas-Info.plist */,
 				D4085156177B24F500DC4C1A /* InfoPlist.strings */,
@@ -299,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B96747177BCE36004C95CD /* template.js in Resources */,
 				D40851A4177B469100DC4C1A /* samples in Resources */,
 				D4085169177B24F500DC4C1A /* Images.xcassets in Resources */,
 				D4085158177B24F500DC4C1A /* InfoPlist.strings in Resources */,
@@ -326,6 +331,7 @@
 				D408515A177B24F500DC4C1A /* main.m in Sources */,
 				D4085187177B26C100DC4C1A /* ZBDocumentsTableViewController.m in Sources */,
 				D40851A1177B3AB000DC4C1A /* ZBSourceEditorViewController.m in Sources */,
+				D4B96746177BCE27004C95CD /* template.js in Sources */,
 				D408518A177B293E00DC4C1A /* ZBJavaScriptDocument.m in Sources */,
 				D408519A177B3A8700DC4C1A /* ZBPreviewViewController.m in Sources */,
 				D408519E177B3AA100DC4C1A /* ZBCanvasManager.m in Sources */,

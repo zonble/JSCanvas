@@ -1,3 +1,5 @@
+/*! The table view controller which lists all existing JavaScript documents. */
+
 @interface ZBDocumentsTableViewController : UITableViewController
 	<UIActionSheetDelegate>
 

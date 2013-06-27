@@ -91,11 +91,6 @@
 		NSDictionary *attr = @{NSFontAttributeName: font, NSForegroundColorAttributeName: this.color};
 		[text drawAtPoint:CGPointMake([x doubleValue], [y doubleValue]) withAttributes:attr];
 	};
-	javaScriptContext[@"TouchLocation"] = ^ {
-		CGPoint location = [this.delegate canvasManagerRequestLastTouchLocation:this];
-		JSValue *value = [JSValue valueWithPoint:location inContext:[JSContext currentContext]];
-		return value;		
-	};
 }
 
 - (id)init
@@ -115,7 +110,16 @@
 
 - (void)runJavaScriptDrawingFunction
 {
-	[javaScriptContext[@"onDraw"] callWithArguments:nil];
+	if (javaScriptContext[@"onDraw"]) {
+		[javaScriptContext[@"onDraw"] callWithArguments:nil];
+	}
+}
+
+- (void)runJavaScriptTapFunctionWithLocation:(CGPoint)inLocation
+{
+	if (javaScriptContext[@"onTap"]) {
+		[javaScriptContext[@"onTap"] callWithArguments:@[[JSValue valueWithPoint:inLocation inContext:javaScriptContext]]];
+	}
 }
 
 @end

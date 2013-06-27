@@ -1,7 +1,8 @@
 #import "ZBPreviewView.h"
 #import "ZBCanvasManager.h"
 
-@interface ZBPreviewViewController : UIViewController <ZBPreviewViewDelegate, ZBCanvasManagerDelegate>
+@interface ZBPreviewViewController : UIViewController
+	<ZBPreviewViewDelegate, ZBCanvasManagerDelegate>
 
 - (instancetype)initWithJavaScript:(NSString *)inJavaScript;
 - (IBAction)close:(id)sender;
