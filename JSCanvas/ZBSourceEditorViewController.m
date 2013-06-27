@@ -50,6 +50,9 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 	self.textView.text = self.document.text;
 	self.title = [[self.document.fileURL path] lastPathComponent];
+	UIBarButtonItem *moreOptionItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"More", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(showMoreOptions:)];
+	UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
+	self.toolbarItems = @[spaceItem, moreOptionItem];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -74,6 +77,22 @@
 	controller.title = self.title;
 	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
 	[self.navigationController presentViewController:navController animated:YES completion:nil];
+}
+
+- (IBAction)showMoreOptions:(id)sender
+{
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"More Options", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"JSCanvas API Reference", @""), nil];
+	[actionSheet showFromBarButtonItem:sender animated:YES];
+}
+
+- (IBAction)showAPIReference:(id)sender
+{
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
 }
 
 #pragma mark -
