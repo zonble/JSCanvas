@@ -1,9 +1,10 @@
 var text = "";
 
 var setup = function() {
-    Ajax("http://apple.com", function(response) {
-        text = response;
-    });
+    Ajax("http://apple.com",
+         function(response) {
+            text = response;
+         });
 }
 
 var onDraw = function() {
