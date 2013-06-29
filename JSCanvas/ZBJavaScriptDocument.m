@@ -55,15 +55,15 @@
 	return files;
 }
 
-+ (ZBJavaScriptDocument *)createNewDocument
++ (ZBJavaScriptDocument *)createNewDocumentWithFileName:(NSString *)inFileName
 {
 	NSURL *templateFileURL = [[NSBundle mainBundle] URLForResource:@"template" withExtension:@"js"];
 	NSString *template = [NSString stringWithContentsOfURL:templateFileURL encoding:NSUTF8StringEncoding error:nil];
 	NSArray *existingFiles = [self AllExistingFiles];
-	NSString *filename = @"newscript.js";
+	NSString *filename = [NSString stringWithFormat:@"%@.js", inFileName];
 	NSInteger index = 0;
 	while ([existingFiles containsObject:filename]) {
-		filename = [NSString stringWithFormat:@"newscript_%d.js", ++index];
+		filename = [NSString stringWithFormat:@"%@_%d.js", inFileName, ++index];
 	}
 	NSURL *fileURL = [self fileURLWithFileName:filename];
 	ZBJavaScriptDocument *document = [[ZBJavaScriptDocument alloc] initWithFileURL:fileURL];

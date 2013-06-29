@@ -4,7 +4,7 @@
 @interface ZBJavaScriptDocument : UIDocument
 
 + (NSArray *)AllExistingFiles;
-+ (ZBJavaScriptDocument *)createNewDocument;
++ (ZBJavaScriptDocument *)createNewDocumentWithFileName:(NSString *)inFileName;
 + (NSURL *)fileURLWithFileName:(NSString *)inFileName;
 
 @property (readonly, nonatomic) NSMutableString *text;

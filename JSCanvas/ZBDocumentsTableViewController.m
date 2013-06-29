@@ -17,10 +17,11 @@
 	UIBarButtonItem *newItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewDocument:)];
 	self.navigationItem.leftBarButtonItem = newItem;
 	self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered target:nil action:NULL];
 
-	UIBarButtonItem *importItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Import...", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(import:)];
-	UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
-	self.toolbarItems = @[importItem, spaceItem];
+//	UIBarButtonItem *importItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Import...", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(import:)];
+//	UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
+//	self.toolbarItems = @[importItem, spaceItem];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,16 +60,17 @@
 
 - (IBAction)createNewDocument:(id)sender
 {
-	ZBJavaScriptDocument *document = [ZBJavaScriptDocument createNewDocument];
+
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"New", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"New Document", @""), NSLocalizedString(@"Load Samples", @""), nil];
+	[actionSheet showFromBarButtonItem:sender animated:YES];
+}
+
+- (IBAction)createNewDocumentFromTemplate:(id)sender
+{
+	ZBJavaScriptDocument *document = [ZBJavaScriptDocument createNewDocumentWithFileName:@"newscript"];
 	[self _loadDocument:document];
 	[self _loadFiles];
 	[self.tableView reloadData];
-}
-
-- (IBAction)import:(id)sender
-{
-	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Import", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Samples", @""), nil];
-	[actionSheet showFromBarButtonItem:sender animated:YES];
 }
 
 - (IBAction)loadSamples:(id)sender
@@ -86,6 +88,9 @@
 {
 	switch (buttonIndex) {
 		case 0:
+			[self createNewDocumentFromTemplate:nil];
+			break;
+		case 1:
 			[self loadSamples:nil];
 			break;
 		default:
@@ -146,7 +151,8 @@
 	NSError *e;
 	NSString *text = [NSString stringWithContentsOfURL:inFileURL encoding:NSUTF8StringEncoding error:&e];
 	if (!e) {
-		ZBJavaScriptDocument *document = [ZBJavaScriptDocument createNewDocument];
+		NSString *filename = [[[inFileURL path] lastPathComponent] componentsSeparatedByString:@"."][0];
+		ZBJavaScriptDocument *document = [ZBJavaScriptDocument createNewDocumentWithFileName:filename];
 		[document.text setString:text];
 		[document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:nil];
 		[self _loadDocument:document];

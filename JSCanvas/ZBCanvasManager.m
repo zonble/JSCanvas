@@ -42,6 +42,12 @@
 	self.fontSize = 13.0;
 	__block ZBCanvasManager *this = self;
 
+	// Debug
+	javaScriptContext[@"Log"] = ^(NSString *text) {
+		NSLog(@"%@", text);
+	};
+
+	// Drawing
 	javaScriptContext[@"SetColor"] = ^(NSNumber *r, NSNumber *g, NSNumber *b, NSNumber *a) {
 		UIColor *color = [this _colorWithR:r G:g B:b A:a];
 		this.color = color;
@@ -101,6 +107,8 @@
 		NSDictionary *attr = @{NSFontAttributeName: font, NSForegroundColorAttributeName: this.color};
 		[text drawInRect:CGRectMake([x doubleValue], [y doubleValue], [w doubleValue], [h doubleValue]) withAttributes:attr];
 	};
+
+	// Sound
 	javaScriptContext[@"Say"] = ^(NSString *text) {
 		if (this.drawing) {
 			return;

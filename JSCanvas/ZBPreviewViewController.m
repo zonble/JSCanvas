@@ -65,7 +65,7 @@
 	[self.previewView addMotionEffect:interpolationHorizontal];
 	[self.previewView addMotionEffect:interpolationVertical];
 
-	UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Close", @"") style:UIBarButtonItemStyleDone target:self action:@selector(close:)];
+	UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Stop", @"") style:UIBarButtonItemStyleDone target:self action:@selector(close:)];
 	self.navigationItem.rightBarButtonItem = closeItem;
 }
 
