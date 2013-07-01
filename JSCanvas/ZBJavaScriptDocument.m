@@ -19,20 +19,38 @@
 	NSString *folderPath = [self scriptDocumentFolderPath];
 	NSFileManager *manager = [NSFileManager defaultManager];
 	BOOL isDir = NO;
+	BOOL createNewDir = NO;
 	if (![manager fileExistsAtPath:folderPath isDirectory:&isDir]) {
 		NSError *error;
 		[manager createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:&error];
+		createNewDir = YES;
 	}
 	else if (!isDir) {
 		NSError *error;
 		[manager removeItemAtPath:folderPath error:&error];
 		[manager createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:&error];
+		createNewDir = YES;
+	}
+
+	if (createNewDir) {
+		NSString *welcomePath = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"samples"] stringByAppendingPathComponent:@"welcome.js"];
+		NSString *toPath = [folderPath stringByAppendingPathComponent:@"welcome.js"];
+		[manager copyItemAtPath:welcomePath toPath:toPath error:nil];
+
+		NSString *clockPath = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"samples"] stringByAppendingPathComponent:@"clock.js"];
+		toPath = [folderPath stringByAppendingPathComponent:@"sample.js"];
+		[manager copyItemAtPath:clockPath toPath:toPath error:nil];
+
+		NSString *scriptPath = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"samples"] stringByAppendingPathComponent:@"template.js"];
+		toPath = [folderPath stringByAppendingPathComponent:@"newscript.js"];
+		[manager copyItemAtPath:scriptPath toPath:toPath error:nil];
 	}
 }
 
-+ (NSArray *)AllExistingFiles
++ (NSArray *)allExistingFiles
 {
 	[self checkIfScriptDocumentFolderExiists];
+
 	NSMutableArray *files = [NSMutableArray array];
 	NSFileManager *manager = [NSFileManager defaultManager];
 	NSString *folderPath = [self scriptDocumentFolderPath];
@@ -59,7 +77,7 @@
 {
 	NSURL *templateFileURL = [[NSBundle mainBundle] URLForResource:@"template" withExtension:@"js"];
 	NSString *template = [NSString stringWithContentsOfURL:templateFileURL encoding:NSUTF8StringEncoding error:nil];
-	NSArray *existingFiles = [self AllExistingFiles];
+	NSArray *existingFiles = [self allExistingFiles];
 	NSString *filename = [NSString stringWithFormat:@"%@.js", inFileName];
 	NSInteger index = 0;
 	while ([existingFiles containsObject:filename]) {

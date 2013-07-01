@@ -18,10 +18,6 @@
 	self.navigationItem.leftBarButtonItem = newItem;
 	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStyleBordered target:nil action:NULL];
-
-//	UIBarButtonItem *importItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Import...", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(import:)];
-//	UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
-//	self.toolbarItems = @[importItem, spaceItem];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,7 +34,7 @@
 
 - (void)_loadFiles
 {
-	NSArray *files = [ZBJavaScriptDocument AllExistingFiles];
+	NSArray *files = [ZBJavaScriptDocument allExistingFiles];
 	self.files = files;
 }
 
