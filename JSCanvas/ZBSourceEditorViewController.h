@@ -5,7 +5,6 @@
 #import "ZBJavaScriptDocument.h"
 
 @interface ZBSourceEditorViewController : UIViewController
-	<UIActionSheetDelegate>
 
 - (instancetype)initWithDocoment:(ZBJavaScriptDocument *)document;
 - (IBAction)run:(id)sender;

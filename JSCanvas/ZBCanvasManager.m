@@ -1,6 +1,38 @@
 #import "ZBCanvasManager.h"
 #import <AVFoundation/AVSpeechSynthesis.h>
 
+@interface ZBJavaScriptValueAlertView : UIAlertView
+@property (retain, nonatomic) JSValue *callback;
+@end
+
+@implementation ZBJavaScriptValueAlertView
+@end
+
+@interface ZBAlertConfirmHandler : NSObject <UIAlertViewDelegate>
+@end
+
+@implementation ZBAlertConfirmHandler
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	ZBJavaScriptValueAlertView *a = (ZBJavaScriptValueAlertView *)alertView;
+	[a.callback callWithArguments:@[@(buttonIndex==1)]];
+}
+@end
+
+@interface ZBAlertPromptHandler : NSObject
+@end
+
+@implementation ZBAlertPromptHandler
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	ZBJavaScriptValueAlertView *a = (ZBJavaScriptValueAlertView *)alertView;
+	if (buttonIndex == 1) {
+		NSString *text = [a textFieldAtIndex:0].text;
+		[a.callback callWithArguments:@[text]];
+	}
+}
+@end
+
 @interface ZBCanvasManager()
 @property (strong, nonatomic) UIColor *color;
 @property (assign, nonatomic) CGFloat lineWidth;
@@ -8,6 +40,8 @@
 @property (assign, nonatomic) CGFloat fontSize;
 @property (readonly, nonatomic) BOOL drawing;
 @property (readonly, nonatomic) AVSpeechSynthesizer *speechSynthesizer;
+@property (strong, nonatomic) ZBAlertConfirmHandler *alertConfirmHandler;
+@property (strong, nonatomic) ZBAlertPromptHandler *alertPromptHandler;
 @end
 
 @implementation ZBCanvasManager
@@ -40,6 +74,8 @@
 	self.lineWidth = 1.0;
 	self.fontName = @"Helvetica";
 	self.fontSize = 13.0;
+	self.alertConfirmHandler = [[ZBAlertConfirmHandler alloc] init];
+	self.alertPromptHandler = [[ZBAlertPromptHandler alloc] init];
 	__block ZBCanvasManager *this = self;
 
 	// Debug
@@ -107,6 +143,24 @@
 		NSDictionary *attr = @{NSFontAttributeName: font, NSForegroundColorAttributeName: this.color};
 		[text drawInRect:CGRectMake([x doubleValue], [y doubleValue], [w doubleValue], [h doubleValue]) withAttributes:attr];
 	};
+
+	// Alerts
+	javaScriptContext[@"Alert"] = ^(NSString *title) {
+		UIAlertView *alert = [[UIAlertView alloc]initWithTitle:title ? title: @"" message:@"" delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil];
+		[alert show];
+	};
+	javaScriptContext[@"Confirm"] = ^(NSString *title, JSValue *callback) {
+		ZBJavaScriptValueAlertView *alert = [[ZBJavaScriptValueAlertView alloc]initWithTitle:title ? title: @"" message:@"" delegate:this.alertConfirmHandler cancelButtonTitle:NSLocalizedString(@"No", @"") otherButtonTitles:NSLocalizedString(@"Yes", @""), nil];
+		alert.callback = callback;
+		[alert show];
+	};
+	javaScriptContext[@"Prompt"] = ^(NSString *title, JSValue *callback) {
+		ZBJavaScriptValueAlertView *alert = [[ZBJavaScriptValueAlertView alloc]initWithTitle:title ? title: @"" message:@"" delegate:this.alertPromptHandler cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"OK", @""), nil];
+		alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+		alert.callback = callback;
+		[alert show];
+	};
+
 
 	// Sound
 	javaScriptContext[@"Say"] = ^(NSString *text) {

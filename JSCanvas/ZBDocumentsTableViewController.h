@@ -5,5 +5,6 @@
 
 - (IBAction)createNewDocument:(id)sender;
 - (IBAction)loadSamples:(id)sender;
+- (IBAction)showMore:(id)sender;
 
 @end
