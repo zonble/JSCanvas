@@ -84,6 +84,24 @@
 	};
 
 	// Drawing
+	javaScriptContext[@"Rect"] = ^(NSNumber *x, NSNumber *y, NSNumber *w, NSNumber *h) {
+		CGRect rect = CGRectMake([x doubleValue], [y doubleValue], [w doubleValue], [h doubleValue]);
+		JSValue *value = [JSValue valueWithRect:rect inContext:[JSContext currentContext]];
+		__block JSValue *theValue = value;
+		value[@"Fill"] = ^() {
+			CGRect theRect = CGRectMake([theValue[@"x"] toDouble], [theValue[@"y"] toDouble], [theValue[@"width"] toDouble], [theValue[@"height"] toDouble]);
+			UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRect:theRect];
+			[bezierPath setLineWidth:this.lineWidth];
+			[bezierPath fill];
+		};
+		value[@"Stroke"] = ^() {
+			CGRect theRect = CGRectMake([theValue[@"x"] toDouble], [theValue[@"y"] toDouble], [theValue[@"width"] toDouble], [theValue[@"height"] toDouble]);
+			UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRect:theRect];
+			[bezierPath setLineWidth:this.lineWidth];
+			[bezierPath stroke];
+		};
+		return value;
+	};
 	javaScriptContext[@"SetColor"] = ^(NSNumber *r, NSNumber *g, NSNumber *b, NSNumber *a) {
 		UIColor *color = [this _colorWithR:r G:g B:b A:a];
 		this.color = color;
