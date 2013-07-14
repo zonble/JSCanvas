@@ -17,5 +17,7 @@
  *  method of a UIView subclass. */
 - (void)runJavaScriptDrawingFunction;
 - (void)runJavaScriptTapFunctionWithLocation:(CGPoint)inLocation;
+- (void)runJavaScriptSwipeFunctionWithDirection:(UISwipeGestureRecognizerDirection)inDirection;
 
 @end
+

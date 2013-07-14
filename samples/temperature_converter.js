@@ -22,9 +22,9 @@ var onDraw = function() {
     celsiusRect.Fill();
     fahrenheitRect.Fill();
     SetColor(0, 0, 0, 255);
-    Text("Celsius:" + celsius.toFixed(2),
+    Text(celsius.toFixed(2) + "℃",
          celsiusRect.x, celsiusRect.y);
-    Text("Fahrenheit:" + fahrenheit.toFixed(2),
+    Text(fahrenheit.toFixed(2) + "℉",
          fahrenheitRect.x, fahrenheitRect.y);
 };
 

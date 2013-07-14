@@ -78,6 +78,23 @@
 	UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
 	[self.previewView addGestureRecognizer:tapGR];
 
+	UISwipeGestureRecognizer *leftSwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+	leftSwipeGR.direction = UISwipeGestureRecognizerDirectionLeft;
+	[self.previewView addGestureRecognizer:leftSwipeGR];
+
+	UISwipeGestureRecognizer *rightSwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+	rightSwipeGR.direction = UISwipeGestureRecognizerDirectionRight;
+	[self.previewView addGestureRecognizer:rightSwipeGR];
+
+	UISwipeGestureRecognizer *upSwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+	upSwipeGR.direction = UISwipeGestureRecognizerDirectionUp;
+	[self.previewView addGestureRecognizer:upSwipeGR];
+
+	UISwipeGestureRecognizer *downSwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+	downSwipeGR.direction = UISwipeGestureRecognizerDirectionDown;
+	[self.previewView addGestureRecognizer:downSwipeGR];
+
+
 	if (!timer) {
 		timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerMethod:) userInfo:nil repeats:YES];
 	}
@@ -102,6 +119,13 @@
 	CGPoint point = [tapGR locationInView:tapGR.view];
 	[canvasManager runJavaScriptTapFunctionWithLocation:point];
 }
+
+- (void)swipe:(UISwipeGestureRecognizer *)swipeGR
+{
+	UISwipeGestureRecognizerDirection direction = swipeGR.direction;
+	[canvasManager runJavaScriptSwipeFunctionWithDirection:direction];
+}
+
 
 #pragma mark ZBPreviewViewDelegate
 

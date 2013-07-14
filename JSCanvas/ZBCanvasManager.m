@@ -242,6 +242,24 @@
 	}
 }
 
+- (void)runJavaScriptSwipeFunctionWithDirection:(UISwipeGestureRecognizerDirection)inDirection
+{
+	NSString *handler = nil;
+	NSDictionary *directionMap = @{@(UISwipeGestureRecognizerDirectionRight): @"onSwipeRight",
+								   @(UISwipeGestureRecognizerDirectionLeft): @"onSwipeLeft",
+								   @(UISwipeGestureRecognizerDirectionUp): @"onSwipeUp",
+								   @(UISwipeGestureRecognizerDirectionDown): @"onSwipeDown"};
+	for (NSNumber *n in [directionMap allKeys]) {
+		if ([n unsignedIntegerValue] == inDirection) {
+			handler = directionMap[n];
+			break;
+		}
+	}
+	if (javaScriptContext[handler]) {
+		[javaScriptContext[handler] callWithArguments:nil];
+	}
+}
+
 @synthesize drawing;
 @synthesize speechSynthesizer;
 
