@@ -81,7 +81,7 @@
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
 	previewController.currentPreviewItemIndex = indexPath.row;
-	NSUInteger option = UIExtendedEdgeLeft | UIExtendedEdgeBottom | UIExtendedEdgeRight;
+	NSUInteger option = UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight;
 	[previewController setEdgesForExtendedLayout:option];
 	[self.navigationController pushViewController:previewController animated:YES];
 }

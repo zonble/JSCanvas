@@ -87,7 +87,7 @@
 	UIGraphicsBeginImageContextWithOptions(imageFrame.size, YES, [UIScreen mainScreen].scale);
 	imageFrame.origin.y -= 36;
 	imageFrame.size.height += 36;
-	[self.view drawViewHierarchyInRect:imageFrame];
+	[self.view drawViewHierarchyInRect:imageFrame afterScreenUpdates:NO];
 	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
 

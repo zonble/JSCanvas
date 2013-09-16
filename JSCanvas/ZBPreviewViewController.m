@@ -72,7 +72,7 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	NSUInteger option = UIExtendedEdgeLeft | UIExtendedEdgeBottom | UIExtendedEdgeRight;
+	NSUInteger option = UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight;
 	[self setEdgesForExtendedLayout:option];
 
 	UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
