@@ -79,7 +79,7 @@
 
 - (IBAction)createNewDocumentFromTemplate:(id)sender
 {
-	ZBJavaScriptDocument *document = [ZBJavaScriptDocument createNewDocumentWithFileName:@"newscript"];
+	ZBJavaScriptDocument *document = [ZBJavaScriptDocument newDocumentWithFileName:@"newscript"];
 	[self _loadDocument:document];
 	[self _loadFiles];
 	[self.tableView reloadData];
@@ -174,7 +174,7 @@
 	NSString *text = [NSString stringWithContentsOfURL:inFileURL encoding:NSUTF8StringEncoding error:&e];
 	if (!e) {
 		NSString *filename = [[[inFileURL path] lastPathComponent] componentsSeparatedByString:@"."][0];
-		ZBJavaScriptDocument *document = [ZBJavaScriptDocument createNewDocumentWithFileName:filename];
+		ZBJavaScriptDocument *document = [ZBJavaScriptDocument newDocumentWithFileName:filename];
 		[document.text setString:text];
 		[document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:nil];
 		[self _loadDocument:document];

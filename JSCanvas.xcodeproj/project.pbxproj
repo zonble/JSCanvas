@@ -149,9 +149,9 @@
 		D4085153177B24F500DC4C1A /* JSCanvas */ = {
 			isa = PBXGroup;
 			children = (
+				D4085193177B3A5A00DC4C1A /* Canvas Manager */,
 				D4085195177B3A7300DC4C1A /* Editor */,
 				D4085194177B3A6900DC4C1A /* Preview */,
-				D4085193177B3A5A00DC4C1A /* Canvas Manager */,
 				D4085192177B3A3700DC4C1A /* Documents */,
 				D40851A2177B467D00DC4C1A /* Samples */,
 				D408515C177B24F500DC4C1A /* ZBAppDelegate.h */,

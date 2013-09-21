@@ -5,7 +5,7 @@
 
 + (NSString *)scriptDocumentFolderPath;
 + (NSArray *)allExistingFiles;
-+ (ZBJavaScriptDocument *)createNewDocumentWithFileName:(NSString *)inFileName;
++ (ZBJavaScriptDocument *)newDocumentWithFileName:(NSString *)inFileName;
 + (NSURL *)fileURLWithFileName:(NSString *)inFileName;
 
 @property (readonly, nonatomic) NSMutableString *text;

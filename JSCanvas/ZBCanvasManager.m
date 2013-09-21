@@ -164,16 +164,16 @@
 
 	// Alerts
 	javaScriptContext[@"Alert"] = ^(NSString *title) {
-		UIAlertView *alert = [[UIAlertView alloc]initWithTitle:title ? title: @"" message:@"" delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil];
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title ? title: @"" message:@"" delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil];
 		[alert show];
 	};
 	javaScriptContext[@"Confirm"] = ^(NSString *title, JSValue *callback) {
-		ZBJavaScriptValueAlertView *alert = [[ZBJavaScriptValueAlertView alloc]initWithTitle:title ? title: @"" message:@"" delegate:this.alertConfirmHandler cancelButtonTitle:NSLocalizedString(@"No", @"") otherButtonTitles:NSLocalizedString(@"Yes", @""), nil];
+		ZBJavaScriptValueAlertView *alert = [[ZBJavaScriptValueAlertView alloc] initWithTitle:title ? title: @"" message:@"" delegate:this.alertConfirmHandler cancelButtonTitle:NSLocalizedString(@"No", @"") otherButtonTitles:NSLocalizedString(@"Yes", @""), nil];
 		alert.callback = callback;
 		[alert show];
 	};
 	javaScriptContext[@"Prompt"] = ^(NSString *title, JSValue *callback) {
-		ZBJavaScriptValueAlertView *alert = [[ZBJavaScriptValueAlertView alloc]initWithTitle:title ? title: @"" message:@"" delegate:this.alertPromptHandler cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"OK", @""), nil];
+		ZBJavaScriptValueAlertView *alert = [[ZBJavaScriptValueAlertView alloc] initWithTitle:title ? title: @"" message:@"" delegate:this.alertPromptHandler cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"OK", @""), nil];
 		alert.alertViewStyle = UIAlertViewStylePlainTextInput;
 		alert.callback = callback;
 		[alert show];

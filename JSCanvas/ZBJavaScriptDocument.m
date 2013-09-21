@@ -73,7 +73,7 @@
 	return files;
 }
 
-+ (ZBJavaScriptDocument *)createNewDocumentWithFileName:(NSString *)inFileName
++ (ZBJavaScriptDocument *)newDocumentWithFileName:(NSString *)inFileName
 {
 	NSURL *templateFileURL = [[NSBundle mainBundle] URLForResource:@"template" withExtension:@"js"];
 	NSString *template = [NSString stringWithContentsOfURL:templateFileURL encoding:NSUTF8StringEncoding error:nil];
