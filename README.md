@@ -1,6 +1,8 @@
 JSCanvas
 ========
 
+> **⚠️ This project is no longer maintained and has been archived.**
+
 An experiment to do a Processing like app using JavaScriptCore
 framework for iOS 7.
 
