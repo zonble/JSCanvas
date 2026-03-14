@@ -1,7 +1,7 @@
-JSCanvas
-========
+# JSCanvas
 
-> **⚠️ This project is no longer maintained and has been archived.**
+> [!WARNING]
+> This project is no longer maintained and has been archived.
 
 JSCanvas was an experiment to build a [Processing](https://processing.org/)-like
 creative-coding environment for iOS, powered by the **JavaScriptCore** framework
